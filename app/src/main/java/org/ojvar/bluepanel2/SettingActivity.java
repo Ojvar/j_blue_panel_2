@@ -10,6 +10,7 @@ import android.view.View;
 
 import org.ojvar.bluepanel2.Adapters.DevicesAdapter;
 import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Models.DeviceModel;
 
@@ -72,7 +73,7 @@ public class SettingActivity extends AppCompatActivity {
 
             GlobalData.settings.setDeviceId(model.getId());
 
-            ToastHelper.showNotify(model.getId() + " Selected ");
+            ToastHelper.showNotify("[" + model.getId() + " / " + model.getName() + "] Selected ");
         }
     };
 
@@ -84,20 +85,14 @@ public class SettingActivity extends AppCompatActivity {
         findViewById(R.id.backButton).setOnClickListener(backButtonEvent);
         findViewById(R.id.saveButton).setOnClickListener(saveButtonEvent);
     }
-
-    /**
-     * Save settings
-     */
-    private void saveSetting() {
-    }
-
+    
     /**
      * Save button pressed
      */
     private View.OnClickListener saveButtonEvent = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            saveSetting();
+            SettingHelper.saveSetting();
             finish();
         }
     };

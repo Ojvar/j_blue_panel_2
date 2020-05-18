@@ -13,14 +13,13 @@ public class SettingHelper {
      * Save setting
      */
     public static void saveSetting() {
-        SharedPreferences.Editor editor =
-                (SharedPreferences.Editor) GlobalData.applicationContext.getSharedPreferences(
-                        KEY_PREFERENCES,
-                        Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = GlobalData.applicationContext.getSharedPreferences(
+                KEY_PREFERENCES,
+                Context.MODE_PRIVATE).edit();
 
         editor.putString(KEY_SETTINGS, GlobalData.settings.toJson());
 
-        editor.apply();
+//        editor.apply();
         editor.commit();
     }
 
@@ -30,10 +29,10 @@ public class SettingHelper {
     public static void loadSetting() {
         SharedPreferences preferences =
                 GlobalData.applicationContext.getSharedPreferences(
-                        KEY_SETTINGS,
+                        KEY_PREFERENCES,
                         Context.MODE_PRIVATE);
 
-        String settings = preferences.getString("settings", "{}");
+        String settings = preferences.getString(KEY_SETTINGS, "{}");
         GlobalData.settings.praseJson(settings);
     }
 }
