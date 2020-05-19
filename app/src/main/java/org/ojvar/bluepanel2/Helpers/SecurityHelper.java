@@ -11,8 +11,9 @@ public class SecurityHelper {
      * @return true/false
      */
     public static boolean attempt(String password) {
-        String pwd = GlobalData.applicationContext.getString(R.string.pwd);
+        String pwd = GlobalData.settings.getPassword();
 
+        pwd += "";
         return password.equals(pwd);
     }
 }

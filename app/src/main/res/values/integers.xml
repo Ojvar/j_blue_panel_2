@@ -1,0 +1,4 @@
+<resources>
+    <integer name="password_min_len">4</integer>
+    <integer name="password_max_len">30</integer>
+</resources>

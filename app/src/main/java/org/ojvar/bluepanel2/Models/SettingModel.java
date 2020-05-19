@@ -3,8 +3,8 @@ package org.ojvar.bluepanel2.Models;
 import com.google.gson.Gson;
 
 public class SettingModel {
-    private String password;
-    private String deviceId;
+    private String password = "";
+    private String deviceId = "";
 
     public String getPassword() {
         return password;

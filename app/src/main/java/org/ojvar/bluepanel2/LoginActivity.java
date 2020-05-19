@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Helpers.SecurityHelper;
 
@@ -18,6 +20,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         setup();
+    }
+
+    /**
+     * On Resume - Reload settings
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SettingHelper.loadSetting();
     }
 
     /**

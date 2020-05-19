@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.os.Bundle;
+import android.transition.ChangeScroll;
 import android.view.View;
 
 import org.ojvar.bluepanel2.Adapters.DevicesAdapter;
@@ -82,14 +84,27 @@ public class SettingActivity extends AppCompatActivity {
      */
     private void bindEvents() {
         devicesRecycleView = findViewById(R.id.devicesRecycleView);
-        findViewById(R.id.backButton).setOnClickListener(backButtonEvent);
-        findViewById(R.id.saveButton).setOnClickListener(saveButtonEvent);
+        findViewById(R.id.backButton).setOnClickListener(goBack);
+        findViewById(R.id.saveButton).setOnClickListener(saveSettings);
+        findViewById(R.id.chnagePasswordButton).setOnClickListener(chnagePassword);
     }
-    
+    /**
+     * Change password button
+     */
+    private View.OnClickListener chnagePassword = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(SettingActivity.this,
+                    ChangePasswordActivity.class);
+
+            startActivity(intent);
+        }
+    };
+
     /**
      * Save button pressed
      */
-    private View.OnClickListener saveButtonEvent = new View.OnClickListener() {
+    private View.OnClickListener saveSettings = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             SettingHelper.saveSetting();
@@ -100,7 +115,7 @@ public class SettingActivity extends AppCompatActivity {
     /**
      * Backbutton pressed
      */
-    private View.OnClickListener backButtonEvent = new View.OnClickListener() {
+    private View.OnClickListener goBack = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             finish();
