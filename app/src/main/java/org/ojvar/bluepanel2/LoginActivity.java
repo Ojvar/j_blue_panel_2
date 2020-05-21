@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 
 import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Helpers.SecurityHelper;
@@ -63,11 +65,10 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Check Login
      */
-    private View.OnClickListener checkLogin = new View.OnClickListener() {
+    private final View.OnClickListener checkLogin = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             EditText passwordEditText = findViewById(R.id.passwordEditText);
-
             String pwd = passwordEditText.getText()
                     .toString();
 
@@ -76,7 +77,37 @@ public class LoginActivity extends AppCompatActivity {
             if (!attemptResult) {
                 ToastHelper.showNotify("Invalid Password");
             } else {
-                showMainActivity();
+                String deviceId = GlobalData.settings.getDeviceId() + "";
+
+                if (deviceId.length() == 0) {
+                    ToastHelper.showNotify("No bluetooth device selected");
+                } else {
+                    final Handler handler = new Handler();
+
+                    BluetoothHelper.connect(deviceId, new BluetoothHelper.BluetoothEvents() {
+                        @Override
+                        public void OnConnect() {
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ToastHelper.showNotify("Connection successfully");
+
+                                    showMainActivity();
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void OnDisconnect() {
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    ToastHelper.showNotify("Connection failed, disconnected");
+                                }
+                            });
+                        }
+                    });
+                }
             }
         }
     };
