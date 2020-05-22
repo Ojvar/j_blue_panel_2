@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="سرعت باز شدن">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param1EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="سرعت بسته شدن">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param2EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="طول کورس با سرعت آهسته">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param3EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="طول کورس زمستانه">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param4EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="سرعت آهسته">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param5EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P5" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="نرخ کاهش یا افزایش سرعت">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param6EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="قدرت موتور در انتهای کورس بسته">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param7EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P7" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="درز درب در حالت بسته کامل">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param8EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P8" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="فعال یا غیرفعال قفل گیربکسی">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param9EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P9" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param10EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P10" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param11EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P11" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param12EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P12" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 4">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param13EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P13" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param14EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P14" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param15EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P15" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 7">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param16EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P16" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 8">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param17EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P17" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 9">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param18EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P18" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param19EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P19" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="رزرو 10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/param20EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="P20" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="ذخیره"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backButton"></Button>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="بازگشت"
+        app:layout_constraintBottom_toBottomOf="@+id/saveButton"
+        app:layout_constraintEnd_toStartOf="@+id/saveButton"
+        app:layout_constraintStart_toStartOf="parent"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

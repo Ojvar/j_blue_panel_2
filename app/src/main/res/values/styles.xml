@@ -10,4 +10,10 @@
         <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
     </style>
 
+    <style name="AppTheme.MenuButton">
+        <item name="android:minHeight">48dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+<!--        <item name="android:textColor">@color/textColor</item>-->
+        <item name="android:background">#BFD9EF</item>
+    </style>
 </resources>

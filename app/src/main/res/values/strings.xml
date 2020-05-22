@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">BluePanel2</string>
-    <string name="login">Login To System</string>
+
+    <string name="login">ورود</string>
+
+    <string name="cmd_button1" formatted="true">[S1:%s]</string>
+    <string name="cmd_button2" formatted="true">[S2:%s]</string>
+    <string name="cmd_button3" formatted="true">[S3:%s]</string>
+    <string name="cmd_button4" formatted="true">[S4:%s]</string>
+    <string name="cmd_button5" formatted="true">[S5:%s]</string>
 </resources>

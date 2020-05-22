@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.ChangeScroll;
+import android.os.Handler;
 import android.view.View;
 
 import org.ojvar.bluepanel2.Adapters.DevicesAdapter;
 import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Models.DeviceModel;
@@ -20,17 +21,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
+
 public class SettingActivity extends AppCompatActivity {
     private RecyclerView devicesRecycleView;
     private List<DeviceModel> devicesList = new ArrayList<>();
 
-
+    /**
+     * Create
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
         setup();
+    }
+
+    /**
+     * On Resume
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     /**
@@ -121,4 +135,5 @@ public class SettingActivity extends AppCompatActivity {
             finish();
         }
     };
+
 }

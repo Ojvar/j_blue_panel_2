@@ -16,6 +16,7 @@ public class ToastHelper {
     public static Toast showNotify(String message) {
         hideNotify();
 
+
         toaster = Toast.makeText(GlobalData.applicationContext, message, Toast.LENGTH_LONG);
         toaster.show();
 

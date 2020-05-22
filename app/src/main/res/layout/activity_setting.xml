@@ -18,12 +18,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
+        android:padding="4sp"
         android:id="@+id/saveButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Save"
+        android:text="ذخیره"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/backButton" />
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Back"
+        android:text="بازگشت"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/saveButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Change Password"
+        android:text="تغییر گذرواژه"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="@+id/saveButton"
         app:layout_constraintStart_toStartOf="@+id/backButton" />
@@ -56,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:text="Select target device"
+        android:text="دستگاه مورد نظر خود را انتخاب نمایید"
         app:layout_constraintBottom_toTopOf="@+id/devicesRecycleView"
         app:layout_constraintEnd_toEndOf="@+id/devicesRecycleView"
         app:layout_constraintStart_toStartOf="@+id/devicesRecycleView"
