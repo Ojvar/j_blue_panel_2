@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.BaseActivity;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
@@ -121,29 +122,21 @@ public class MainActivity extends BaseActivity {
         }
     };
 
-
     /**
      * BTEvents
      */
     private BluetoothHelper.BluetoothEvents btEvents = new BluetoothHelper.BluetoothEvents() {
         @Override
         public void OnConnect() {
-
         }
 
         @Override
         public void OnDisconnect() {
-
         }
 
         @Override
         public void OnCommand(final String data) {
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    ToastHelper.showNotify(data);
-                }
-            });
+            GlobalData.updateDataModel(data);
         }
     };
 }

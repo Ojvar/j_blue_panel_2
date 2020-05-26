@@ -8,4 +8,6 @@
     <string name="cmd_button3" formatted="true">[S3:%s]</string>
     <string name="cmd_button4" formatted="true">[S4:%s]</string>
     <string name="cmd_button5" formatted="true">[S5:%s]</string>
+    <string name="cmd_params" formatted="true">[P:%s]</string>
+    <string name="cmd_status">[STATUS]</string>
 </resources>

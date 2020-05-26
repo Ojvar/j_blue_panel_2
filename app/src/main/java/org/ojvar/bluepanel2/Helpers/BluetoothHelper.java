@@ -2,6 +2,7 @@ package org.ojvar.bluepanel2.Helpers;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
+import android.util.Log;
 
 import org.ojvar.bluepanel2.App.GlobalData;
 
@@ -143,6 +144,7 @@ public class BluetoothHelper {
                                 try {
                                     events.OnCommand(strData);
                                 } catch (Exception ex) {
+                                    ex.printStackTrace();
                                 }
                             }
                         }

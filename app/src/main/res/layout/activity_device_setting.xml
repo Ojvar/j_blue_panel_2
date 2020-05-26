@@ -6,17 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/loadButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="فراخوانی اطلاعات"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/loadButton">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +48,7 @@
                     android:id="@+id/param1EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P1" />
+                    android:tag="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -46,7 +60,7 @@
                     android:id="@+id/param2EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P2" />
+                    android:tag="2" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -58,7 +72,7 @@
                     android:id="@+id/param3EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P3" />
+                    android:tag="3" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +84,7 @@
                     android:id="@+id/param4EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P4" />
+                    android:tag="4" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +96,7 @@
                     android:id="@+id/param5EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P5" />
+                    android:tag="5" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -94,7 +108,7 @@
                     android:id="@+id/param6EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P6" />
+                    android:tag="6" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -106,7 +120,7 @@
                     android:id="@+id/param7EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P7" />
+                    android:tag="7" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -118,7 +132,7 @@
                     android:id="@+id/param8EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P8" />
+                    android:tag="8" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -130,7 +144,7 @@
                     android:id="@+id/param9EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P9" />
+                    android:tag="9" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -142,7 +156,7 @@
                     android:id="@+id/param10EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P10" />
+                    android:tag="10" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -155,7 +169,7 @@
                     android:id="@+id/param11EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P11" />
+                    android:tag="11" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -168,7 +182,7 @@
                     android:id="@+id/param12EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P12" />
+                    android:tag="12" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -181,7 +195,7 @@
                     android:id="@+id/param13EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P13" />
+                    android:tag="13" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -194,7 +208,7 @@
                     android:id="@+id/param14EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P14" />
+                    android:tag="14" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -207,7 +221,7 @@
                     android:id="@+id/param15EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P15" />
+                    android:tag="15" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -220,7 +234,7 @@
                     android:id="@+id/param16EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P16" />
+                    android:tag="16" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -233,7 +247,7 @@
                     android:id="@+id/param17EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P17" />
+                    android:tag="17" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -246,7 +260,7 @@
                     android:id="@+id/param18EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P18" />
+                    android:tag="18" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -259,7 +273,7 @@
                     android:id="@+id/param19EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P19" />
+                    android:tag="19" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -271,7 +285,7 @@
                     android:id="@+id/param20EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:tag="P20" />
+                    android:tag="20" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
