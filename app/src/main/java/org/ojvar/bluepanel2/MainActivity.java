@@ -9,7 +9,6 @@ import android.view.View;
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.BaseActivity;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
-import org.ojvar.bluepanel2.Helpers.ToastHelper;
 
 import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
@@ -51,7 +50,7 @@ public class MainActivity extends BaseActivity {
      * Bind events
      */
     private void bindEvents() {
-        findViewById(R.id.backButton).setOnClickListener(backButtonEvent);
+        findViewById(R.id.resetButton).setOnClickListener(backButtonEvent);
         findViewById(R.id.settingButton).setOnClickListener(settingButtonEvent);
 
         findViewById(R.id.cmdAutomaticButton).setOnTouchListener(touchHandler);

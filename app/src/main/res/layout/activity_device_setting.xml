@@ -46,9 +46,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param1EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,9 +59,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param2EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="2" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,9 +72,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param3EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="3" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,9 +85,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param4EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="4" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,9 +98,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param5EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="5" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,9 +111,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param6EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="6" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,9 +124,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param7EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="7" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,9 +137,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param8EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="8" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,9 +150,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param9EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="9" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,9 +163,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param10EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="10" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -177,9 +177,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param11EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="11" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -191,9 +191,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param12EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="12" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -205,9 +205,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param13EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="13" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -219,9 +219,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param14EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="14" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -233,9 +233,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param15EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="15" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -247,9 +247,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param16EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="16" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -261,9 +261,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param17EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="17" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -275,9 +275,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param18EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="18" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -289,9 +289,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param19EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="19" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -302,9 +302,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param20EditText"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:tag="20" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -317,22 +317,35 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:text="ذخیره"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/backButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/backButton"></Button>
+        app:layout_constraintStart_toEndOf="@+id/resetButton" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/resetButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="بازگشت"
-        app:layout_constraintBottom_toBottomOf="@+id/saveButton"
+        android:layout_marginBottom="8dp"
+        android:text="تنظیمات کارخانه ای"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toStartOf="@+id/saveButton"
-        app:layout_constraintStart_toStartOf="parent"></Button>
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="بازگشت"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

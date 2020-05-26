@@ -30,7 +30,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
      * Bind events
      */
     private void bindEvents() {
-        findViewById(R.id.backButton).setOnClickListener(backButtonClick);
+        findViewById(R.id.resetButton).setOnClickListener(backButtonClick);
         findViewById(R.id.saveButton).setOnClickListener(saveButtonClick);
     }
 

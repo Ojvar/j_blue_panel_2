@@ -70,6 +70,7 @@ public class DeviceSettingActivity extends BaseActivity {
      * Bind events
      */
     private void bindEvents() {
+        findViewById(R.id.resetButton).setOnClickListener(resetDataClick);
         findViewById(R.id.backButton).setOnClickListener(backButtonClick);
         findViewById(R.id.loadButton).setOnClickListener(loadButtonClick);
         findViewById(R.id.saveButton).setOnClickListener(saveButtonClick);
@@ -91,16 +92,58 @@ public class DeviceSettingActivity extends BaseActivity {
     private View.OnClickListener saveButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            /* Send to device */
-            String cmd = collectData();
-            BluetoothHelper.send(cmd);
-
-            /* Update data mode l*/
-            updateDataModel();
+            syncData();
 
             finish();
         }
     };
+
+    /**
+     * Save button click
+     */
+    private View.OnClickListener resetDataClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            for (int i = 1; i < 10; ++i) {
+                String resName = "param" + i + "EditText";
+                String value = getStringResourceByName(resName);
+
+                GlobalData.dataModel.setValue(resName, value);
+            }
+
+            /* Update UI */
+            updateUI();
+
+            syncData();
+        }
+    };
+
+    /**
+     * Sync data
+     */
+    private void syncData() {
+        /* Send to device */
+        String cmd = collectData();
+        BluetoothHelper.send(cmd);
+
+        /* Update data mode l*/
+        updateDataModel();
+    }
+
+    /**
+     * Get resource by name
+     *
+     * @param aString
+     * @return
+     */
+    private String getStringResourceByName(String aString) {
+        String packageName = getPackageName();
+
+        int resId = getResources()
+                .getIdentifier(aString, "string", packageName);
+
+        return getString(resId);
+    }
 
     /**
      * Collect data

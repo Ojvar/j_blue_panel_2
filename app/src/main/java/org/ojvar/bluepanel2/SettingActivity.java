@@ -7,12 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 
 import org.ojvar.bluepanel2.Adapters.DevicesAdapter;
 import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Models.DeviceModel;
@@ -20,8 +18,6 @@ import org.ojvar.bluepanel2.Models.DeviceModel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
 public class SettingActivity extends AppCompatActivity {
     private RecyclerView devicesRecycleView;
@@ -98,7 +94,7 @@ public class SettingActivity extends AppCompatActivity {
      */
     private void bindEvents() {
         devicesRecycleView = findViewById(R.id.devicesRecycleView);
-        findViewById(R.id.backButton).setOnClickListener(goBack);
+        findViewById(R.id.resetButton).setOnClickListener(goBack);
         findViewById(R.id.saveButton).setOnClickListener(saveSettings);
         findViewById(R.id.chnagePasswordButton).setOnClickListener(chnagePassword);
     }

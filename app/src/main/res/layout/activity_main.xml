@@ -58,7 +58,7 @@
             android:text="تنظیمات دستگاه" />
 
         <Button
-            android:id="@+id/backButton"
+            android:id="@+id/resetButton"
             style="@style/AppTheme.MenuButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

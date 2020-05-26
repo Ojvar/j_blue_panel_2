@@ -27,10 +27,10 @@
         android:text="ذخیره"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/backButton" />
+        app:layout_constraintStart_toEndOf="@+id/resetButton" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/resetButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -49,7 +49,7 @@
         android:text="تغییر گذرواژه"
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="@+id/saveButton"
-        app:layout_constraintStart_toStartOf="@+id/backButton" />
+        app:layout_constraintStart_toStartOf="@+id/resetButton" />
 
     <TextView
         android:id="@+id/textView3"
