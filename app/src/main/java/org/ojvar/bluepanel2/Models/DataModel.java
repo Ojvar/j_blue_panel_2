@@ -1,5 +1,7 @@
 package org.ojvar.bluepanel2.Models;
 
+import com.google.gson.Gson;
+
 import java.util.HashMap;
 
 public class DataModel {
@@ -26,5 +28,29 @@ public class DataModel {
         }
 
         return defaultValue;
+    }
+
+    /**
+     * To Json
+     *
+     * @return
+     */
+    public String toJson() {
+        Gson gson = new Gson();
+
+        return gson.toJson(this);
+    }
+
+    /**
+     * From json
+     *
+     * @return
+     */
+    public void praseJson(String json) {
+        Gson gson = new Gson();
+
+        DataModel model = gson.fromJson(json, DataModel.class);
+
+        this.data = model.data;
     }
 }

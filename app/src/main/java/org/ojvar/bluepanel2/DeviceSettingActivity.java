@@ -2,16 +2,15 @@ package org.ojvar.bluepanel2;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
 
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.BaseActivity;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
+import org.ojvar.bluepanel2.Helpers.MinMaxFilter;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
@@ -45,8 +44,26 @@ public class DeviceSettingActivity extends BaseActivity {
      * Setup
      */
     private void setup() {
+        prepareEdits();
         bindEvents();
         updateUI();
+    }
+
+    /**
+     * Prepare editViews
+     */
+    private void prepareEdits() {
+        for (int i = 1; i < 21; i++) {
+            String resName = "param" + i + "EditText";
+
+            EditText view = (EditText) findViewByName(resName);
+            if (null != view) {
+                view.setFilters(new InputFilter[]{
+                        new MinMaxFilter(getString(R.string.setting_min_value),
+                                getString(R.string.setting_max_value))
+                });
+            }
+        }
     }
 
     /**
@@ -74,8 +91,12 @@ public class DeviceSettingActivity extends BaseActivity {
     private View.OnClickListener saveButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            /* Send to device */
             String cmd = collectData();
             BluetoothHelper.send(cmd);
+
+            /* Update data mode l*/
+            updateDataModel();
 
             finish();
         }
@@ -99,11 +120,12 @@ public class DeviceSettingActivity extends BaseActivity {
                 String value = view.getText()
                         .toString();
 
+                /* Add to array */
                 params[i - 1] = value;
             }
         }
 
-        for (int i=0; i<19 ; ++i){
+        for (int i = 0; i < 19; ++i) {
             cmd += params[i] + ";";
         }
         cmd += params[19];
@@ -156,6 +178,27 @@ public class DeviceSettingActivity extends BaseActivity {
             }
         }
     };
+
+    /**
+     * Update DataModel
+     */
+    private void updateDataModel() {
+        for (int i = 1; i < 21; i++) {
+            String resName = "param" + i + "EditText";
+
+            EditText view = (EditText) findViewByName(resName);
+            if (null != view) {
+                String value = view.getText()
+                        .toString();
+
+                /* Send to dataModel */
+                GlobalData.dataModel.setValue("param" + i + "EditText", value);
+            }
+        }
+
+        /* Save settings to shared-preferences */
+        SettingHelper.saveSetting();
+    }
 
     /**
      * Update UI

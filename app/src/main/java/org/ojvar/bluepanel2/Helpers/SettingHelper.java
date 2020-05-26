@@ -8,6 +8,7 @@ import org.ojvar.bluepanel2.App.GlobalData;
 public class SettingHelper {
     public static final String KEY_PREFERENCES = "preferences";
     public static final String KEY_SETTINGS = "settings";
+    public static final String KEY_DATA_MODEL = "data_model";
 
     /**
      * Save setting
@@ -18,8 +19,8 @@ public class SettingHelper {
                 Context.MODE_PRIVATE).edit();
 
         editor.putString(KEY_SETTINGS, GlobalData.settings.toJson());
+        editor.putString(KEY_DATA_MODEL, GlobalData.dataModel.toJson());
 
-//        editor.apply();
         editor.commit();
     }
 
@@ -34,5 +35,8 @@ public class SettingHelper {
 
         String settings = preferences.getString(KEY_SETTINGS, "{}");
         GlobalData.settings.praseJson(settings);
+        
+        String dataModel = preferences.getString(KEY_DATA_MODEL, "{}");
+        GlobalData.dataModel.praseJson(dataModel);
     }
 }
