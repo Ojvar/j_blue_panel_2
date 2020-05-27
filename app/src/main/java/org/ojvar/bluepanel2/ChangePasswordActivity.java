@@ -55,19 +55,21 @@ public class ChangePasswordActivity extends AppCompatActivity {
         if (oldPassword.equals(storedOldPassword)) {
             if (newPassword.equals(confirmNewPassword)) {
                 if (newPassword.length() < passMinLen) {
-                    ToastHelper.showNotify("Password should be at least " + passMinLen + " characters");
+                    ToastHelper.showNotify(String.format(getString(R.string.min_pass_len),
+                            String.valueOf(passMinLen)));
                 } else if (newPassword.length() > passMaxLen) {
-                    ToastHelper.showNotify("Password should be at most " + passMaxLen + " characters");
+                    ToastHelper.showNotify(String.format(getString(R.string.max_pass_len),
+                            String.valueOf(passMaxLen)));
                 } else {
                     GlobalData.settings.setPassword(newPassword);
 
                     return true;
                 }
             } else {
-                ToastHelper.showNotify("Check new passwords");
+                ToastHelper.showNotify(getString(R.string.check_new_password));
             }
         } else {
-            ToastHelper.showNotify("Old password is invalid");
+            ToastHelper.showNotify(getString(R.string.invalid_old_pass));
         }
 
         return false;

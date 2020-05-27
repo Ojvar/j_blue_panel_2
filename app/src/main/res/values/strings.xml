@@ -66,9 +66,14 @@
     <string name="reserve_8">رزرو 8</string>
     <string name="reserve_9">رزرو 9</string>
     <string name="reserve_10">رزرو 10</string>
+    <string name="reserve_11">رزرو 11</string>
     <string name="reset_to_default">تنظیمات کارخانه ای</string>
     <string name="change_password">تغییر گذرواژه</string>
     <string name="select_your_device">دستگاه مورد نظر خود را انتخاب نمایید</string>
     <string name="new_password">گذرواژه جدید</string>
     <string name="confirm_new_password">تکرار گذرواژه جدید</string>
+    <string name="check_new_password">گذرواژه های جدید یکسان نیستند</string>
+    <string name="invalid_old_pass">گذرواژه جاری نامعتبر است</string>
+    <string name="max_pass_len" formatted="true">گذرواژه باید حداقل %s کاراکتر باشد</string>
+    <string name="min_pass_len" formatted="true">گذرواژه باید حداکثر %s کاراکتر باشد</string>
 </resources>

@@ -96,7 +96,7 @@ public class SettingActivity extends AppCompatActivity {
         devicesRecycleView = findViewById(R.id.devicesRecycleView);
         findViewById(R.id.resetButton).setOnClickListener(goBack);
         findViewById(R.id.saveButton).setOnClickListener(saveSettings);
-        findViewById(R.id.chnagePasswordButton).setOnClickListener(chnagePassword);
+        findViewById(R.id.changePasswordButton).setOnClickListener(chnagePassword);
     }
     /**
      * Change password button

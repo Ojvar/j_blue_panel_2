@@ -3,8 +3,6 @@ package org.ojvar.bluepanel2.Helpers;
 import android.app.ProgressDialog;
 import android.content.Context;
 
-import org.ojvar.bluepanel2.App.GlobalData;
-
 public class ProgressHelper {
     private static ProgressDialog dialog = null;
 

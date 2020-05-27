@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppTheme.MainContainer"
-    tools:context=".SettingActivity">
+    style="@style/AppTheme.MainContainer">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/devicesRecycleView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/chnagePasswordButton"
-        app:layout_constraintEnd_toEndOf="@+id/chnagePasswordButton"
-        app:layout_constraintStart_toStartOf="@+id/chnagePasswordButton"
+        app:layout_constraintBottom_toTopOf="@+id/changePasswordButton"
+        app:layout_constraintEnd_toEndOf="@+id/changePasswordButton"
+        app:layout_constraintStart_toStartOf="@+id/changePasswordButton"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
@@ -42,7 +40,7 @@
         app:layout_constraintTop_toTopOf="@+id/saveButton" />
 
     <Button
-        android:id="@+id/chnagePasswordButton"
+        android:id="@+id/changePasswordButton"
         style="@style/AppTheme.MenuButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

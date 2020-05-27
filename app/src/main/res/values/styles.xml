@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+<!--        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>-->
     </style>
 
     <style name="AppTheme.MainContainer">
@@ -45,10 +45,6 @@
     <style name="AppTheme.MenuButton.Primary">
         <item name="android:background">@drawable/menu_button_primary</item>
         <item name="android:textColor">@color/button_fc</item>
-        <item name="android:layout_width">128dp</item>
-        <item name="android:layout_height">128dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_margin">4dp</item>
     </style>
 
     <style name="AppTheme.InputBoxLayout">

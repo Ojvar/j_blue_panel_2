@@ -239,7 +239,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_10">
+                android:hint="@string/reserve_11">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param20EditText"
