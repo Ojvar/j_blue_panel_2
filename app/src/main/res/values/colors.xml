@@ -7,5 +7,5 @@
     <color name="textColor">#fff</color>
     <color name="semiWhite">#80EAEAEA</color>
 
-    <color name="btn_bk">#DADADA</color>
+    <color name="button_fc">#fff</color>
 </resources>

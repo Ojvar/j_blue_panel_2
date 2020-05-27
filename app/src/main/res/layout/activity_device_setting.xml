@@ -2,19 +2,20 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.MainContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
         android:id="@+id/loadButton"
+        style="@style/AppTheme.MenuButton.Primary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="فراخوانی اطلاعات"
+        android:text="@string/load_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,273 +39,211 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="سرعت باز شدن">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/open_speed">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param1EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="سرعت بسته شدن">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/close_speed">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param2EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="2" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="طول کورس با سرعت آهسته">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/low_speed_course">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param3EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="3" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="طول کورس زمستانه">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/winter_course">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param4EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="4" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="سرعت آهسته">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/low_speed">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param5EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="5" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="نرخ کاهش یا افزایش سرعت">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/change_coefficient">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param6EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="6" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="قدرت موتور در انتهای کورس بسته">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/motor_power">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param7EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="7" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="درز درب در حالت بسته کامل">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/door_full_close">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param8EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="8" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="فعال یا غیرفعال قفل گیربکسی">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/en_dis_gearbox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param9EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="9" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 1">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param10EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="10" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 2">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_2">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param11EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="11" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 3">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_3">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param12EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="12" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 4">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_4">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param13EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="13" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 5">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_5">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param14EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="14" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 6">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_6">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param15EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="15" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 7">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_7">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param16EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="16" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 8">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_8">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param17EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="17" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 9">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_9">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param18EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="18" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="رزرو 10">
+                android:hint="@string/reserve_10">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param19EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="19" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="رزرو 10">
+                style="@style/AppTheme.InputBoxLayout.FullWidth"
+                android:hint="@string/reserve_10">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/param20EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
+                    style="@style/AppTheme.InputBox.SingleLine.Number"
                     android:tag="20" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -313,36 +252,38 @@
 
     <Button
         android:id="@+id/saveButton"
+        style="@style/AppTheme.MenuButton.Primary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="ذخیره"
+        android:text="@string/save"
         app:layout_constraintBottom_toTopOf="@id/backButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/resetButton" />
 
     <Button
         android:id="@+id/resetButton"
-        android:layout_width="0dp"
+        style="@style/AppTheme.MenuButton"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="تنظیمات کارخانه ای"
+        android:text="@string/reset_to_default"
         app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toStartOf="@+id/saveButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/backButton"
+        style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="بازگشت"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,8 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -10,10 +9,81 @@
         <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
     </style>
 
+    <style name="AppTheme.MainContainer">
+        <item name="android:background">@drawable/activity_bk</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="AppTheme.Container">
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AppTheme.Container.Vertical">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="AppTheme.ButtonRow">
+        <item name="android:padding">4dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="AppTheme.MenuButton">
-        <item name="android:minHeight">48dp</item>
+        <item name="android:background">@drawable/menu_button</item>
+        <item name="android:textColor">@color/button_fc</item>
+        <item name="android:layout_width">128dp</item>
+        <item name="android:layout_height">128dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="AppTheme.MenuButton.Primary">
+        <item name="android:background">@drawable/menu_button_primary</item>
+        <item name="android:textColor">@color/button_fc</item>
+        <item name="android:layout_width">128dp</item>
+        <item name="android:layout_height">128dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="AppTheme.InputBoxLayout">
+        <item name="android:textColor">@color/textColor</item>
         <item name="android:layout_marginBottom">8dp</item>
-<!--        <item name="android:textColor">@color/textColor</item>-->
-        <item name="android:background">#BFD9EF</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AppTheme.InputBoxLayout.FullWidth">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="AppTheme.ListItem">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AppTheme.InputBox">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="AppTheme.InputBox.SingleLine">
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="AppTheme.InputBox.SingleLine.Number">
+        <item name="android:inputType">number</item>
+    </style>
+
+    <style name="AppTheme.InputBox.SingleLine.NumberPassword">
+        <item name="android:inputType">numberPassword</item>
     </style>
 </resources>
