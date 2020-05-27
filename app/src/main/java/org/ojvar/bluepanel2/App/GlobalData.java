@@ -52,6 +52,13 @@ public class GlobalData {
         if (params.length < 21) {
             for (int i = 0; i < params.length; ++i) {
                 String value = params[i];
+
+                // Remove "XXX:" symbole
+                int nameIndex = value.indexOf(":");
+                if (-1 < nameIndex){
+                    value = value.substring(nameIndex+1);
+                }
+
                 final String resName = "param" + (i + 1) + "EditText";
 
                 /* Add to output list */
