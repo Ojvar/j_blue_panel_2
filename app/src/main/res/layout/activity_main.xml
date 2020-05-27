@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp">
+    style="@style/AppTheme.MainContainer">
 
     <LinearLayout
+        style="@style/AppTheme.Container.Vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/cmdAutomaticButton"
-            style="@style/AppTheme.MenuButton"
+        <LinearLayout style="@style/AppTheme.ButtonRow">
+
+            <Button
+                android:id="@+id/cmdAutomaticButton"
+                style="@style/AppTheme.MenuButton"
+                android:tag="@string/cmd_button1"
+                android:text="@string/automatic" />
+
+            <Button
+                android:id="@+id/cmdFullOpenButton"
+                style="@style/AppTheme.MenuButton"
+                android:tag="@string/cmd_button2"
+                android:text="@string/full_open" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/AppTheme.ButtonRow">
+
+            <Button
+                android:id="@+id/cmdLockButton"
+                style="@style/AppTheme.MenuButton"
+                android:tag="@string/cmd_button3"
+                android:text="@string/lock" />
+
+            <Button
+                android:id="@+id/cmdOneWayButton"
+                style="@style/AppTheme.MenuButton"
+                android:tag="@string/cmd_button4"
+                android:text="@string/oneway_pass" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/AppTheme.ButtonRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:tag="@string/cmd_button1"
-            android:text="اتوماتیک" />
+            android:paddingTop="48dp">
 
-        <Button
-            android:id="@+id/cmdFullOpenButton"
-            style="@style/AppTheme.MenuButton"
+            <Button
+                android:id="@+id/cmdWinterButton"
+                style="@style/AppTheme.MenuButton"
+                android:tag="@string/cmd_button5"
+                android:text="@string/winter" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/AppTheme.ButtonRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:tag="@string/cmd_button2"
-            android:text="باز کامل" />
+            android:paddingTop="48dp">
 
-        <Button
-            android:id="@+id/cmdLockButton"
-            style="@style/AppTheme.MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:tag="@string/cmd_button3"
-            android:text="قفل" />
+            <Button
+                android:id="@+id/resetButton"
+                style="@style/AppTheme.MenuButton.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/exit" />
 
-        <Button
-            android:id="@+id/cmdOneWayButton"
-            style="@style/AppTheme.MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:tag="@string/cmd_button4"
-            android:text="یک سو تردد" />
-
-        <Button
-            android:id="@+id/cmdWinterButton"
-            style="@style/AppTheme.MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:tag="@string/cmd_button5"
-            android:text="زمستانه" />
-
-        <Button
-            android:id="@+id/settingButton"
-            style="@style/AppTheme.MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="تنظیمات دستگاه" />
-
-        <Button
-            android:id="@+id/resetButton"
-            style="@style/AppTheme.MenuButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="خروج" />
-
+            <Button
+                android:id="@+id/settingButton"
+                style="@style/AppTheme.MenuButton.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/device_settings" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
