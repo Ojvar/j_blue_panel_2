@@ -62,7 +62,6 @@ public class GlobalData {
             }
         }
 
-
         String[] itemsArray = new String[result.size()];
         itemsArray = result.toArray(itemsArray);
 

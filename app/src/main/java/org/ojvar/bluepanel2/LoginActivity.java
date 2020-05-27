@@ -6,16 +6,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
+import org.ojvar.bluepanel2.Helpers.ProgressHelper;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Helpers.SecurityHelper;
 
 public class LoginActivity extends AppCompatActivity {
+    private Button loginButton;
+    private EditText passwordEditText;
 
+    /**
+     * OnCreate
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +54,10 @@ public class LoginActivity extends AppCompatActivity {
      * Bind events
      */
     private void bindEvents() {
-        findViewById(R.id.loginButton).setOnClickListener(checkLogin);
+        loginButton = findViewById(R.id.loginButton);
+        passwordEditText = findViewById(R.id.passwordEditText);
+
+        loginButton.setOnClickListener(checkLogin);
         findViewById(R.id.settingButton).setOnClickListener(showSettingActivity);
     }
 
@@ -61,26 +73,31 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
-
     /**
      * Check Login
      */
     private final View.OnClickListener checkLogin = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            EditText passwordEditText = findViewById(R.id.passwordEditText);
             String pwd = passwordEditText.getText()
                     .toString();
+
+            /* Disable UI */
+            disableUI();
 
             boolean attemptResult = SecurityHelper.attempt(pwd);
 
             if (!attemptResult) {
-                ToastHelper.showNotify("Invalid Password");
+                ToastHelper.showNotify(getString(R.string.invalid_password));
+
+                enableUI();
             } else {
                 String deviceId = GlobalData.settings.getDeviceId() + "";
 
                 if (deviceId.length() == 0) {
-                    ToastHelper.showNotify("No bluetooth device selected");
+                    ToastHelper.showNotify(getString(R.string.device_not_found));
+
+                    enableUI();
                 } else {
                     final Handler handler = new Handler();
 
@@ -90,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ToastHelper.showNotify("Connection successfully");
+                                    ToastHelper.showNotify(getString(R.string.connection_successfully));
 
                                     showMainActivity();
                                 }
@@ -102,7 +119,9 @@ public class LoginActivity extends AppCompatActivity {
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ToastHelper.showNotify("Connection failed, disconnected");
+                                    enableUI();
+
+                                    ToastHelper.showNotify(getString(R.string.connection_failed));
                                 }
                             });
                         }
@@ -115,6 +134,33 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     };
+
+    /**
+     * Set UI State
+     *
+     * @param state
+     */
+    private void setUIState(boolean state) {
+        loginButton.setEnabled(state);
+        passwordEditText.setEnabled(state);
+    }
+
+    /**
+     * Enable UI
+     */
+    private void enableUI() {
+        setUIState(true);
+        ProgressHelper.hideProgress();
+    }
+
+    /**
+     * Disable UI
+     */
+    private void disableUI() {
+        setUIState(false);
+        ProgressHelper.showProgress(LoginActivity.this,
+                "", getString(R.string.conneting_to_device));
+    }
 
     /**
      * Show Main activity

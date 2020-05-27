@@ -54,7 +54,8 @@ public class DeviceSettingActivity extends BaseActivity {
      */
     private void prepareEdits() {
         for (int i = 1; i < 21; i++) {
-            String resName = "param" + i + "EditText";
+            String resName =
+                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
             EditText view = (EditText) findViewByName(resName);
             if (null != view) {
@@ -105,7 +106,8 @@ public class DeviceSettingActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
             for (int i = 1; i < 10; ++i) {
-                String resName = "param" + i + "EditText";
+                String resName =
+                        String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
                 String value = getStringResourceByName(resName);
 
                 GlobalData.dataModel.setValue(resName, value);
@@ -156,7 +158,8 @@ public class DeviceSettingActivity extends BaseActivity {
 
         String[] params = new String[20];
         for (int i = 1; i < 21; i++) {
-            String resName = "param" + i + "EditText";
+            String resName =
+                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
             EditText view = (EditText) findViewByName(resName);
             if (null != view) {
@@ -227,15 +230,20 @@ public class DeviceSettingActivity extends BaseActivity {
      */
     private void updateDataModel() {
         for (int i = 1; i < 21; i++) {
-            String resName = "param" + i + "EditText";
+            String resName =
+                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
             EditText view = (EditText) findViewByName(resName);
             if (null != view) {
                 String value = view.getText()
                         .toString();
 
+                if (value.equals("")) {
+                    value = "0";
+                }
+
                 /* Send to dataModel */
-                GlobalData.dataModel.setValue("param" + i + "EditText", value);
+                GlobalData.dataModel.setValue(resName, value);
             }
         }
 
@@ -252,7 +260,11 @@ public class DeviceSettingActivity extends BaseActivity {
         View view = findViewByName(resName);
 
         if (null != view) {
-            String value = GlobalData.dataModel.getValue(resName, "");
+            String value = GlobalData.dataModel.getValue(resName, "0");
+
+            if (value.equals("")) {
+                value = "0";
+            }
 
             ((EditText) view).setText(value);
         }
@@ -263,7 +275,8 @@ public class DeviceSettingActivity extends BaseActivity {
      */
     private void updateUI() {
         for (int i = 1; i < 21; ++i) {
-            final String resName = "param" + i + "EditText";
+            final String resName =
+                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
             updateUI(resName);
         }

@@ -24,4 +24,16 @@
     <string name="param7EditText">25</string>
     <string name="param8EditText">50</string>
     <string name="param9EditText">1</string>
+
+    <!-- Default parameters name -->
+    <string name="param_x_edit_text" formatted="true">"param%sEditText</string>
+
+    <string name="login_title">Remote Panel 2</string>
+
+    <string name="password">گذرواژه</string>
+    <string name="conneting_to_device">در حال اتصال به دستگاه</string>
+    <string name="invalid_password">گذرواژه نادرست می باشد</string>
+    <string name="device_not_found">دستگاه یافت نشد</string>
+    <string name="connection_successfully">اتصال برقرار شد</string>
+    <string name="connection_failed">خطا در اتصال به دستگاه</string>
 </resources>
