@@ -1,7 +1,6 @@
 package org.ojvar.bluepanel2;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.InputFilter;
 import android.view.View;
 import android.widget.EditText;
@@ -15,8 +14,6 @@ import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
 public class DeviceSettingActivity extends BaseActivity {
-    private Handler handler = new Handler();
-
     /**
      * On Create
      *
@@ -53,7 +50,9 @@ public class DeviceSettingActivity extends BaseActivity {
      * Prepare editViews
      */
     private void prepareEdits() {
-        for (int i = 1; i < 21; i++) {
+        int paramsLen = getResources().getInteger(R.integer.params_len);
+
+        for (int i = 1; i <= paramsLen; i++) {
             String resName =
                     String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
@@ -155,9 +154,10 @@ public class DeviceSettingActivity extends BaseActivity {
     private String collectData() {
         /* Generate command string */
         String cmd = "";
+        int paramsLen = getResources().getInteger(R.integer.params_len);
 
-        String[] params = new String[20];
-        for (int i = 1; i < 21; i++) {
+        String[] params = new String[paramsLen];
+        for (int i = 1; i <= paramsLen; i++) {
             String resName =
                     String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
@@ -171,11 +171,10 @@ public class DeviceSettingActivity extends BaseActivity {
             }
         }
 
-        for (int i = 0; i < 19; ++i) {
+        /* Gathering data */
+        for (int i = 0; i < params.length; ++i) {
             cmd += params[i] + ";";
         }
-        cmd += params[19];
-
         cmd = getString(R.string.cmd_params, cmd);
 
         return cmd;
@@ -195,6 +194,8 @@ public class DeviceSettingActivity extends BaseActivity {
      * BTEvents
      */
     private BluetoothHelper.BluetoothEvents btEvents = new BluetoothHelper.BluetoothEvents() {
+        public String buffer = "";
+
         @Override
         public void OnConnect() {
 
@@ -206,22 +207,36 @@ public class DeviceSettingActivity extends BaseActivity {
         }
 
         @Override
-        public void OnCommand(final String data) {
-            final String[] params = GlobalData.updateDataModel(data);
+        public synchronized void OnCommand(final String data) {
+            int paramsLen = getResources().getInteger(R.integer.params_len);
+            buffer += data;
 
-            if (params.length < 21) {
-                for (int i = 0; i < params.length; ++i) {
-                    final int j = i;
+            if (!buffer.contains("]")) {
+                return;
+            }
 
-                    /* Update UI */
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
+            String[] buckets = buffer.split("\n");
+            buffer = "";
+
+            for (String bucket : buckets) {
+                String[] tmpParams = bucket.split(";");
+
+                if (tmpParams.length != paramsLen) {
+                    buffer += bucket + "\r\n";
+                } else {
+                    final String[] params = GlobalData.updateDataModel(bucket);
+
+                    if (params.length > 0) {
+                        for (int i = 0; i < params.length; ++i) {
+                            final int j = i;
+
+                            /* Update UI */
                             updateUI(params[j]);
                         }
-                    });
+                    }
                 }
             }
+
         }
     };
 
@@ -229,7 +244,9 @@ public class DeviceSettingActivity extends BaseActivity {
      * Update DataModel
      */
     private void updateDataModel() {
-        for (int i = 1; i < 21; i++) {
+        int paramsLen = getResources().getInteger(R.integer.params_len);
+
+        for (int i = 1; i <= paramsLen; i++) {
             String resName =
                     String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 
@@ -267,6 +284,7 @@ public class DeviceSettingActivity extends BaseActivity {
             }
 
             ((EditText) view).setText(value);
+            view.invalidate();
         }
     }
 
@@ -274,7 +292,9 @@ public class DeviceSettingActivity extends BaseActivity {
      * Update UI - All
      */
     private void updateUI() {
-        for (int i = 1; i < 21; ++i) {
+        int paramsLen = getResources().getInteger(R.integer.params_len);
+
+        for (int i = 1; i <= paramsLen; ++i) {
             final String resName =
                     String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
 

@@ -23,7 +23,11 @@ public class ProgressHelper {
      */
     public static void hideProgress() {
         if (null != dialog) {
-            dialog.dismiss();
+            try {
+                dialog.dismiss();
+            } catch (Exception ex) {
+            }
+
             dialog = null;
         }
     }

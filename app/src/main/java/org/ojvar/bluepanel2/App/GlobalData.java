@@ -8,6 +8,7 @@ import android.content.Context;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
 import org.ojvar.bluepanel2.Models.DataModel;
 import org.ojvar.bluepanel2.Models.SettingModel;
+import org.ojvar.bluepanel2.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,35 +43,44 @@ public class GlobalData {
      * @param data
      */
     public static String[] updateDataModel(String data) {
-        List<String> result = new ArrayList<>();
-        final String[] params = data.replace("[", "")
+        List<String> result = null;
+        String[] buckets = data.replace("[", "")
                 .replace("]", "")
                 .replace("\n", "")
-                .replace("\r", "")
-                .split(";");
+                .split("\r");
 
-        if (params.length < 21) {
-            for (int i = 0; i < params.length; ++i) {
-                String value = params[i];
+        for (String bData : buckets) {
+            result = new ArrayList<>();
+            final String[] params = bData.split(";");
 
-                // Remove "XXX:" symbole
-                int nameIndex = value.indexOf(":");
-                if (-1 < nameIndex){
-                    value = value.substring(nameIndex+1);
+            int paramsLen = applicationContext.getResources().getInteger(R.integer.params_len);
+            if (params.length == paramsLen) {
+                for (int i = 0; i < params.length; ++i) {
+                    String value = params[i];
+
+                    int nameIndex = value.indexOf(":");
+                    if (-1 < nameIndex) {
+                        value = value.substring(nameIndex + 1);
+                    }
+
+                    final String resName =
+                            String.format(applicationContext.getString(R.string.param_x_edit_text),
+                                    String.valueOf(i + 1));
+
+                    /* Add to output list */
+                    result.add(resName);
+
+                    /* Update data model */
+                    GlobalData.dataModel.setValue(resName, value);
                 }
-
-                final String resName = "param" + (i + 1) + "EditText";
-
-                /* Add to output list */
-                result.add(resName);
-
-                /* Update data model */
-                GlobalData.dataModel.setValue(resName, value);
             }
         }
 
-        String[] itemsArray = new String[result.size()];
-        itemsArray = result.toArray(itemsArray);
+        String[] itemsArray = new String[0];
+        if (null != result) {
+            itemsArray = new String[result.size()];
+            itemsArray = result.toArray(itemsArray);
+        }
 
         return itemsArray;
     }

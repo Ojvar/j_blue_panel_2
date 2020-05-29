@@ -1,17 +1,19 @@
 package org.ojvar.bluepanel2.Helpers;
 
+import android.app.Application;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
-import android.util.Log;
 
 import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.bluepanel2.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class BluetoothHelper {
-    private static UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     public static BluetoothEvents events;
 
     /**
@@ -36,6 +38,10 @@ public class BluetoothHelper {
                 e.printStackTrace();
             }
         }
+
+        if (null != GlobalData.btAdapter) {
+            GlobalData.btAdapter.cancelDiscovery();
+        }
     }
 
     /**
@@ -45,7 +51,8 @@ public class BluetoothHelper {
         GlobalData.btAdapter = BluetoothAdapter.getDefaultAdapter();
 
         if (GlobalData.btAdapter == null) {
-            ToastHelper.showNotify("Bluetooth device not found!");
+            String msg = GlobalData.applicationContext.getString(R.string.bluetooth_not_found);
+            ToastHelper.showNotify(msg);
 
             return false;
         }
@@ -66,7 +73,8 @@ public class BluetoothHelper {
 
         GlobalData.btDevice = GlobalData.btAdapter.getRemoteDevice(deviceId);
         if (GlobalData.btDevice == null) {
-            ToastHelper.showNotify("No device found");
+            String msg = GlobalData.applicationContext.getString(R.string.device_not_found);
+            ToastHelper.showNotify(msg);
 
             return false;
         }
@@ -91,7 +99,9 @@ public class BluetoothHelper {
                     GlobalData.btSocket.connect();
 
                     if (!GlobalData.btSocket.isConnected()) {
-                        throw new Exception("Connection failed");
+                        String msg = GlobalData.applicationContext.getString(R.string.bt_connection_failed);
+
+                        throw new Exception(msg);
                     }
 
                     // Listen to socket
@@ -139,7 +149,8 @@ public class BluetoothHelper {
 
                         if (size > 0) {
                             if (null != events) {
-                                String strData = new String(data, 0, size);
+                                byte[] sData = Arrays.copyOfRange(data, 0, size);
+                                String strData = new String(sData, Charset.forName("UTF-8"));
 
                                 try {
                                     events.OnCommand(strData);

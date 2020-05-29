@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        BluetoothHelper.disconnect();
         SettingHelper.loadSetting();
     }
 
