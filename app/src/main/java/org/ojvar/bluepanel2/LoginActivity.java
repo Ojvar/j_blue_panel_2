@@ -15,6 +15,7 @@ import org.ojvar.bluepanel2.Helpers.ProgressHelper;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
 import org.ojvar.bluepanel2.Helpers.SecurityHelper;
+import org.ojvar.bluepanel2.Helpers.VibrationHelper;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
@@ -81,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
     private final View.OnClickListener checkLogin = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             String pwd = passwordEditText.getText()
                     .toString();
 

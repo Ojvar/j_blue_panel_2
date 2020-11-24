@@ -10,6 +10,7 @@ import org.ojvar.bluepanel2.Helpers.BaseActivity;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
 import org.ojvar.bluepanel2.Helpers.MinMaxFilter;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
+import org.ojvar.bluepanel2.Helpers.VibrationHelper;
 
 import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
@@ -82,6 +83,8 @@ public class DeviceSettingActivity extends BaseActivity {
     private View.OnClickListener loadButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             BluetoothHelper.send(getString(R.string.cmd_status));
         }
     };
@@ -92,8 +95,9 @@ public class DeviceSettingActivity extends BaseActivity {
     private View.OnClickListener saveButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            syncData();
+            VibrationHelper.vibrate(getApplicationContext());
 
+            syncData();
             finish();
         }
     };
@@ -104,6 +108,8 @@ public class DeviceSettingActivity extends BaseActivity {
     private View.OnClickListener resetDataClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             for (int i = 1; i < 10; ++i) {
                 String resName =
                         String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
@@ -186,6 +192,8 @@ public class DeviceSettingActivity extends BaseActivity {
     private View.OnClickListener backButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             finish();
         }
     };

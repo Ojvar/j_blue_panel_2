@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">BluePanel2</string>
+    <string name="app_name">PARS REMOTE</string>
+    <string name="login_title">
+        PARS REMOTE corporation
+    </string>
 
     <string name="login">ورود</string>
 
@@ -27,8 +30,6 @@
 
     <!-- Default parameters name -->
     <string name="param_x_edit_text" formatted="true">"param%sEditText</string>
-
-    <string name="login_title">Remote Panel 2</string>
 
     <string name="password">گذرواژه</string>
     <string name="conneting_to_device">در حال اتصال به دستگاه</string>

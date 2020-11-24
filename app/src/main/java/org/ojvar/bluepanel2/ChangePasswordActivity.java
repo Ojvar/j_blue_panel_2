@@ -4,13 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
+import org.ojvar.bluepanel2.Helpers.VibrationHelper;
 
 public class ChangePasswordActivity extends AppCompatActivity {
-
+    /**
+     * On Create
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,9 +84,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
     /**
      * Save button click
      */
-    private View.OnClickListener saveButtonClick = new View.OnClickListener() {
+    private final OnClickListener saveButtonClick = new OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             if (changePassword()) {
                 finish();
             }
@@ -90,9 +98,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
     /**
      * Back button click
      */
-    private View.OnClickListener backButtonClick = new View.OnClickListener() {
+    private final OnClickListener backButtonClick = new OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             finish();
         }
     };

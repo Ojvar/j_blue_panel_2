@@ -13,6 +13,7 @@ import org.ojvar.bluepanel2.Adapters.DevicesAdapter;
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.ToastHelper;
+import org.ojvar.bluepanel2.Helpers.VibrationHelper;
 import org.ojvar.bluepanel2.Models.DeviceModel;
 
 import java.util.ArrayList;
@@ -81,8 +82,9 @@ public class SettingActivity extends AppCompatActivity {
     private DevicesAdapter.ItemClickListener deviceItemClick = new DevicesAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            DeviceModel model = devicesList.get(position);
+            VibrationHelper.vibrate(getApplicationContext());
 
+            DeviceModel model = devicesList.get(position);
             GlobalData.settings.setDeviceId(model.getId());
 
             ToastHelper.showNotify("[" + model.getId() + " / " + model.getName() + "] Selected ");
@@ -104,6 +106,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener chnagePassword = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             Intent intent = new Intent(SettingActivity.this,
                     ChangePasswordActivity.class);
 
@@ -117,6 +121,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener saveSettings = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             SettingHelper.saveSetting();
             finish();
         }
@@ -128,6 +134,8 @@ public class SettingActivity extends AppCompatActivity {
     private View.OnClickListener goBack = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             finish();
         }
     };

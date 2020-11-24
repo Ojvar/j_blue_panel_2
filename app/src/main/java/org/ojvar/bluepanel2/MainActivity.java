@@ -9,6 +9,7 @@ import android.view.View;
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.BaseActivity;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
+import org.ojvar.bluepanel2.Helpers.VibrationHelper;
 
 import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
@@ -63,8 +64,9 @@ public class MainActivity extends BaseActivity {
     private View.OnTouchListener touchHandler = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            String cmd;
+            VibrationHelper.vibrate(getApplicationContext());
 
+            String cmd;
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     cmd = String.format(v.getTag() + "", "1");
@@ -104,6 +106,8 @@ public class MainActivity extends BaseActivity {
     private View.OnClickListener backButtonEvent = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            VibrationHelper.vibrate(getApplicationContext());
+
             BluetoothHelper.disconnect();
             finish();
         }
@@ -115,8 +119,9 @@ public class MainActivity extends BaseActivity {
     private View.OnClickListener settingButtonEvent = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, DeviceSettingActivity.class);
+            VibrationHelper.vibrate(getApplicationContext());
 
+            Intent intent = new Intent(MainActivity.this, DeviceSettingActivity.class);
             startActivity(intent);
         }
     };
