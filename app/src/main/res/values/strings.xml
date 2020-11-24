@@ -17,19 +17,8 @@
     <string name="setting_min_value">0</string>
     <string name="setting_max_value">100</string>
 
-    <!-- Default values -->
-    <string name="param1EditText">90</string>
-    <string name="param2EditText">85</string>
-    <string name="param3EditText">20</string>
-    <string name="param4EditText">60</string>
-    <string name="param5EditText">30</string>
-    <string name="param6EditText">60</string>
-    <string name="param7EditText">25</string>
-    <string name="param8EditText">50</string>
-    <string name="param9EditText">1</string>
-
     <!-- Default parameters name -->
-    <string name="param_x_edit_text" formatted="true">"param%sEditText</string>
+    <string name="param_edit_text_x" formatted="true">"paramEditText%s</string>
 
     <string name="password">گذرواژه</string>
     <string name="conneting_to_device">در حال اتصال به دستگاه</string>
@@ -49,25 +38,7 @@
     <string name="save">ذخیره</string>
     <string name="load_data">فراخوانی اطلاعات</string>
     <string name="close_speed">سرعت بسته شدن</string>
-    <string name="open_speed">سرعت باز شدن</string>
-    <string name="low_speed_course">طول کورس با سرعت آهسته</string>
-    <string name="winter_course">طول کورس زمستانه</string>
-    <string name="low_speed">سرعت آهسته</string>
-    <string name="change_coefficient">نرخ کاهش یا افزایش سرعت</string>
-    <string name="motor_power">قدرت موتور در انتهای کورس بسته</string>
-    <string name="door_full_close">درز درب در حالت بسته کامل</string>
-    <string name="en_dis_gearbox">فعال یا غیرفعال قفل گیربکسی</string>
-    <string name="reserve_1">رزرو 1</string>
-    <string name="reserve_2">رزرو 2</string>
-    <string name="reserve_3">رزرو 3</string>
-    <string name="reserve_4">رزرو 4</string>
-    <string name="reserve_5">رزرو 5</string>
-    <string name="reserve_6">رزرو 6</string>
-    <string name="reserve_7">رزرو 7</string>
-    <string name="reserve_8">رزرو 8</string>
-    <string name="reserve_9">رزرو 9</string>
-    <string name="reserve_10">رزرو 10</string>
-    <string name="reserve_11">رزرو 11</string>
+
     <string name="reset_to_default">تنظیمات کارخانه ای</string>
     <string name="change_password">تغییر گذرواژه</string>
     <string name="select_your_device">دستگاه مورد نظر خود را انتخاب نمایید</string>
@@ -79,4 +50,5 @@
     <string name="min_pass_len" formatted="true">گذرواژه باید حداکثر %s کاراکتر باشد</string>
     <string name="bluetooth_not_found">هیچ دستگاه بلوتوثی پیدا نشد</string>
     <string name="bt_connection_failed">اتصال با خطا مواجه شد</string>
+    <string name="fieldsJson">fields.json</string>
 </resources>

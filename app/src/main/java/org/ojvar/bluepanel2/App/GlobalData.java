@@ -34,6 +34,9 @@ public class GlobalData {
      * Setup bluetooth event handler
      */
     public static void setupBTEventHandler(BluetoothHelper.BluetoothEvents events) {
+        /* TODO:// OJVAR  DISALBE */
+        if (true) return;
+
         BluetoothHelper.events = events;
     }
 
@@ -64,7 +67,7 @@ public class GlobalData {
                     }
 
                     final String resName =
-                            String.format(applicationContext.getString(R.string.param_x_edit_text),
+                            String.format(applicationContext.getString(R.string.param_edit_text_x),
                                     String.valueOf(i + 1));
 
                     /* Add to output list */

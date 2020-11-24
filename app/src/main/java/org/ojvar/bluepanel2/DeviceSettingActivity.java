@@ -1,20 +1,32 @@
 package org.ojvar.bluepanel2;
 
 import android.os.Bundle;
-import android.text.InputFilter;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
+
+import org.ojvar.bluepanel2.Adapters.DeviceSettingsAdapter;
 import org.ojvar.bluepanel2.App.GlobalData;
 import org.ojvar.bluepanel2.Helpers.BaseActivity;
 import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
-import org.ojvar.bluepanel2.Helpers.MinMaxFilter;
 import org.ojvar.bluepanel2.Helpers.SettingHelper;
 import org.ojvar.bluepanel2.Helpers.VibrationHelper;
+import org.ojvar.bluepanel2.Models.DeviceSettingModel;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 
 public class DeviceSettingActivity extends BaseActivity {
+    private DeviceSettingModel[] items = null;
+    private RecyclerView devicesListRecyclerView = null;
+
     /**
      * On Create
      *
@@ -44,27 +56,94 @@ public class DeviceSettingActivity extends BaseActivity {
     private void setup() {
         prepareEdits();
         bindEvents();
-        updateUI();
     }
 
     /**
      * Prepare editViews
      */
     private void prepareEdits() {
-        int paramsLen = getResources().getInteger(R.integer.params_len);
+        loadItemsData();
+        devicesListRecyclerView = findViewById(R.id.devicesListRecyclerView);
 
-        for (int i = 1; i <= paramsLen; i++) {
-            String resName =
-                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
+        devicesListRecyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        devicesListRecyclerView.setLayoutManager(layoutManager);
 
-            EditText view = (EditText) findViewByName(resName);
-            if (null != view) {
-                view.setFilters(new InputFilter[]{
-                        new MinMaxFilter(getString(R.string.setting_min_value),
-                                getString(R.string.setting_max_value))
-                });
+//        DeviceSettingsAdapter adapter = new DeviceSettingsAdapter(GlobalData.applicationContext, items);
+        DeviceSettingsAdapter adapter = new DeviceSettingsAdapter(getApplicationContext(), items);
+        devicesListRecyclerView.setAdapter(adapter);
+
+        adapter.setOnItemChangeEvents(new DeviceSettingsAdapter.IOnItemChange() {
+            @Override
+            public void onItemValueChanged(DeviceSettingModel model, int newValue) {
+                DeviceSettingModel.ValueRange range = model.getRange();
+
+                if ((newValue < range.min) || (newValue > range.max)) {
+                    newValue = range.min;
+                }
+
+                if (model.getValue() != newValue) {
+                    model.setValue(newValue);
+
+                    for (int pos = 0; pos < items.length; pos++) {
+                        if (items[pos].getId() == model.getId()) {
+                            updateUIItem(pos);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * Load items data
+     */
+    private void loadItemsData() {
+        String jsonData = getJsonData();
+        items = getDevicesItems(jsonData);
+    }
+
+    /**
+     * Get device items
+     *
+     * @param jsonData
+     * @return
+     */
+    private DeviceSettingModel[] getDevicesItems(String jsonData) {
+        Gson gson = new Gson();
+
+        return gson.fromJson(jsonData, DeviceSettingModel[].class);
+    }
+
+    /**
+     * Get Json data
+     *
+     * @return
+     */
+    private String getJsonData() {
+        String jsonData = "";
+        BufferedReader reader = null;
+
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(getAssets().open(getString(R.string.fieldsJson))));
+
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                jsonData += mLine + "\n";
+            }
+        } catch (IOException e) {
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                }
             }
         }
+
+        return jsonData;
     }
 
     /**
@@ -110,15 +189,7 @@ public class DeviceSettingActivity extends BaseActivity {
         public void onClick(View v) {
             VibrationHelper.vibrate(getApplicationContext());
 
-            for (int i = 1; i < 10; ++i) {
-                String resName =
-                        String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
-                String value = getStringResourceByName(resName);
-
-                GlobalData.dataModel.setValue(resName, value);
-            }
-
-            /* Update UI */
+            loadItemsData();
             updateUI();
 
             syncData();
@@ -138,48 +209,15 @@ public class DeviceSettingActivity extends BaseActivity {
     }
 
     /**
-     * Get resource by name
-     *
-     * @param aString
-     * @return
-     */
-    private String getStringResourceByName(String aString) {
-        String packageName = getPackageName();
-
-        int resId = getResources()
-                .getIdentifier(aString, "string", packageName);
-
-        return getString(resId);
-    }
-
-    /**
      * Collect data
      *
      * @return
      */
     private String collectData() {
-        /* Generate command string */
         String cmd = "";
-        int paramsLen = getResources().getInteger(R.integer.params_len);
 
-        String[] params = new String[paramsLen];
-        for (int i = 1; i <= paramsLen; i++) {
-            String resName =
-                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
-
-            EditText view = (EditText) findViewByName(resName);
-            if (null != view) {
-                String value = view.getText()
-                        .toString();
-
-                /* Add to array */
-                params[i - 1] = value;
-            }
-        }
-
-        /* Gathering data */
-        for (int i = 0; i < params.length; ++i) {
-            cmd += params[i] + ";";
+        for (DeviceSettingModel model : items) {
+            cmd += String.valueOf(model.getValue()) + ";";
         }
         cmd = getString(R.string.cmd_params, cmd);
 
@@ -206,17 +244,15 @@ public class DeviceSettingActivity extends BaseActivity {
 
         @Override
         public void OnConnect() {
-
         }
 
         @Override
         public void OnDisconnect() {
-
         }
 
         @Override
         public synchronized void OnCommand(final String data) {
-            int paramsLen = getResources().getInteger(R.integer.params_len);
+            int paramsLen = items.length;
             buffer += data;
 
             if (!buffer.contains("]")) {
@@ -233,15 +269,13 @@ public class DeviceSettingActivity extends BaseActivity {
                     buffer += bucket + "\r\n";
                 } else {
                     final String[] params = GlobalData.updateDataModel(bucket);
+                    for (String param : params) {
+                        int index = Integer.valueOf(param.replace("paramEditText", ""));
 
-                    if (params.length > 0) {
-                        for (int i = 0; i < params.length; ++i) {
-                            final int j = i;
-
-                            /* Update UI */
-                            updateUI(params[j]);
-                        }
+                        items[index].setValue(Integer.valueOf(GlobalData.dataModel.getValue(param, "0")));
                     }
+
+                    updateUI();
                 }
             }
 
@@ -252,24 +286,12 @@ public class DeviceSettingActivity extends BaseActivity {
      * Update DataModel
      */
     private void updateDataModel() {
-        int paramsLen = getResources().getInteger(R.integer.params_len);
-
-        for (int i = 1; i <= paramsLen; i++) {
+        for (int i = 0; i < items.length; i++) {
             String resName =
-                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
+                    String.format(getString(R.string.param_edit_text_x), String.valueOf(i+1));
 
-            EditText view = (EditText) findViewByName(resName);
-            if (null != view) {
-                String value = view.getText()
-                        .toString();
-
-                if (value.equals("")) {
-                    value = "0";
-                }
-
-                /* Send to dataModel */
-                GlobalData.dataModel.setValue(resName, value);
-            }
+            String value = String.valueOf(items[i].getValue());
+            GlobalData.dataModel.setValue(resName, value);
         }
 
         /* Save settings to shared-preferences */
@@ -278,35 +300,31 @@ public class DeviceSettingActivity extends BaseActivity {
 
     /**
      * Update UI
-     *
-     * @param resName
      */
-    private void updateUI(final String resName) {
-        View view = findViewByName(resName);
+    private void updateUI() {
+        if (null != devicesListRecyclerView) {
+            DeviceSettingsAdapter adapter = (DeviceSettingsAdapter) devicesListRecyclerView.getAdapter();
 
-        if (null != view) {
-            String value = GlobalData.dataModel.getValue(resName, "0");
-
-            if (value.equals("")) {
-                value = "0";
+            try {
+                adapter.notifyDataSetChanged();
+            } catch
+            (Exception e) {
             }
-
-            ((EditText) view).setText(value);
-            view.invalidate();
         }
     }
 
     /**
-     * Update UI - All
+     * Update UI
      */
-    private void updateUI() {
-        int paramsLen = getResources().getInteger(R.integer.params_len);
+    private void updateUIItem(int position) {
+        if (null != devicesListRecyclerView) {
+            DeviceSettingsAdapter adapter = (DeviceSettingsAdapter) devicesListRecyclerView.getAdapter();
 
-        for (int i = 1; i <= paramsLen; ++i) {
-            final String resName =
-                    String.format(getString(R.string.param_x_edit_text), String.valueOf(i));
-
-            updateUI(resName);
+            try {
+                adapter.notifyItemChanged(position);
+            } catch
+            (Exception e) {
+            }
         }
     }
 }

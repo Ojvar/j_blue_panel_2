@@ -2,6 +2,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppTheme.MainContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -21,7 +22,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/devicesListRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -31,224 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loadButton">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/open_speed">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param1EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="1" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/close_speed">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param2EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="2" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/low_speed_course">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param3EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="3" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/winter_course">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param4EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="4" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/low_speed">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param5EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="5" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/change_coefficient">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param6EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="6" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/motor_power">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param7EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="7" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/door_full_close">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param8EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="8" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/en_dis_gearbox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param9EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="9" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_1">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param10EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="10" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_2">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param11EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="11" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_3">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param12EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="12" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_4">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param13EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="13" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_5">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param14EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="14" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_6">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param15EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="15" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_7">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param16EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="16" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_8">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param17EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="17" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_9">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param18EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="18" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/reserve_10">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param19EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="19" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/AppTheme.InputBoxLayout.FullWidth"
-                android:hint="@string/reserve_11">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/param20EditText"
-                    style="@style/AppTheme.InputBox.SingleLine.Number"
-                    android:tag="20" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/loadButton" />
 
     <Button
         android:id="@+id/saveButton"

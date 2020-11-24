@@ -87,16 +87,6 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
     }
 
     /**
-     * convenience method for getting data at click position
-     *
-     * @param id
-     * @return
-     */
-    DeviceModel getItem(int id) {
-        return mData.get(id);
-    }
-
-    /**
      * allows clicks events to be caught
      *
      * @param itemClickListener
