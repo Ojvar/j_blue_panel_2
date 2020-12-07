@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         SettingHelper.loadSetting();
     }
 
-
     /**
      * Setup
      */
@@ -82,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
     private final View.OnClickListener checkLogin = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            /* TODO:  REMOVE AFTER TEST */
+            showMainActivity();
+
             VibrationHelper.vibrate(getApplicationContext());
 
             String pwd = passwordEditText.getText()

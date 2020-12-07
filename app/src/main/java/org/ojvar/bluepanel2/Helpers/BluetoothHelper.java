@@ -1,6 +1,5 @@
 package org.ojvar.bluepanel2.Helpers;
 
-import android.app.Application;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
 
@@ -204,6 +203,7 @@ public class BluetoothHelper {
                     try {
                         GlobalData.btSocket.getOutputStream()
                                 .write(cmd);
+                        GlobalData.btSocket.getOutputStream().flush();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

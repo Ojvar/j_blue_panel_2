@@ -69,7 +69,6 @@ public class DeviceSettingActivity extends BaseActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         devicesListRecyclerView.setLayoutManager(layoutManager);
 
-//        DeviceSettingsAdapter adapter = new DeviceSettingsAdapter(GlobalData.applicationContext, items);
         DeviceSettingsAdapter adapter = new DeviceSettingsAdapter(getApplicationContext(), items);
         devicesListRecyclerView.setAdapter(adapter);
 
@@ -102,6 +101,16 @@ public class DeviceSettingActivity extends BaseActivity {
     private void loadItemsData() {
         String jsonData = getJsonData();
         items = getDevicesItems(jsonData);
+
+        /* Update data model */
+        for (DeviceSettingModel model : items) {
+            int id = model.getId();
+            String resName = String.format(getString(R.string.param_edit_text_x), String.valueOf(id));
+            String defValue = String.valueOf(model.getRange().min);
+
+            int value = Integer.valueOf(GlobalData.dataModel.getValue(resName, defValue));
+            items[id-1].setValue(value);
+        }
     }
 
     /**
@@ -204,8 +213,8 @@ public class DeviceSettingActivity extends BaseActivity {
         String cmd = collectData();
         BluetoothHelper.send(cmd);
 
-        /* Update data mode l*/
-        updateDataModel();
+        /* Update data model */
+        updateDataModel(true);
     }
 
     /**
@@ -285,17 +294,19 @@ public class DeviceSettingActivity extends BaseActivity {
     /**
      * Update DataModel
      */
-    private void updateDataModel() {
+    private void updateDataModel(boolean saveSetting) {
         for (int i = 0; i < items.length; i++) {
             String resName =
-                    String.format(getString(R.string.param_edit_text_x), String.valueOf(i+1));
+                    String.format(getString(R.string.param_edit_text_x), String.valueOf(i + 1));
 
             String value = String.valueOf(items[i].getValue());
             GlobalData.dataModel.setValue(resName, value);
         }
 
         /* Save settings to shared-preferences */
-        SettingHelper.saveSetting();
+        if (saveSetting) {
+            SettingHelper.saveSetting();
+        }
     }
 
     /**

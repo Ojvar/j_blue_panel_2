@@ -26,6 +26,7 @@ public class SettingActivity extends AppCompatActivity {
 
     /**
      * Create
+     *
      * @param savedInstanceState
      */
     @Override
@@ -100,6 +101,7 @@ public class SettingActivity extends AppCompatActivity {
         findViewById(R.id.saveButton).setOnClickListener(saveSettings);
         findViewById(R.id.changePasswordButton).setOnClickListener(chnagePassword);
     }
+
     /**
      * Change password button
      */
