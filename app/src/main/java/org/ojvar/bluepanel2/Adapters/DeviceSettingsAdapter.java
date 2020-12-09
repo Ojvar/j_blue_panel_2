@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,7 @@ import org.ojvar.bluepanel2.Models.DeviceSettingModel;
 import org.ojvar.bluepanel2.R;
 
 public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAdapter.ViewHolder> {
+    private final Context context;
     private DeviceSettingModel[] mData;
     private LayoutInflater mInflater;
     private IOnItemChange onItemChangeEvents;
@@ -31,6 +33,7 @@ public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAd
      * @param data
      */
     public DeviceSettingsAdapter(Context context, DeviceSettingModel[] data) {
+        this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -120,11 +123,19 @@ public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAd
 //            rowTextInput = itemView.findViewById(R.id.rowTextInput);
             valueEditText = itemView.findViewById(R.id.valueEditText);
 
+            final int number = Integer.valueOf("0" + valueEditText.getText().toString());
+
+            helpImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemChangeEvents.onHelpClicked(model, number);
+                }
+            });
+
             valueEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
                 public void onFocusChange(View v, boolean hasFocus) {
                     if ((null != onItemChangeEvents) && !hasFocus) {
-                        int number = Integer.valueOf("0" + valueEditText.getText().toString());
                         onItemChangeEvents.onItemValueChanged(model, number);
                     }
                 }
@@ -137,5 +148,7 @@ public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAd
      */
     public interface IOnItemChange {
         void onItemValueChanged(DeviceSettingModel model, int newValue);
+
+        void onHelpClicked(DeviceSettingModel model, int number);
     }
 }

@@ -15,30 +15,36 @@
 
         <ImageView
             android:id="@+id/helpImageView"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:contentDescription="Help"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:contentDescription="@string/help"
             android:paddingStart="8dp"
             android:paddingLeft="8dp"
             android:paddingEnd="8dp"
             android:paddingRight="8dp"
-            app:srcCompat="@mipmap/ic_launcher" />
+            android:src="@android:drawable/ic_menu_help"
+            app:srcCompat="@android:drawable/ic_menu_help" />
 
         <TextView
             android:id="@+id/idTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
             android:paddingStart="8dp"
             android:paddingLeft="8dp"
             android:paddingEnd="8dp"
             android:paddingRight="8dp"
-            android:text="ID"
-            tools:text="ID" />
+            android:text="@string/id"
+            tools:text="@string/id" />
+
 
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
             android:text="Title"
             tools:text="Title" />
 
@@ -51,8 +57,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Input Hint" />
-80
-<!--        <com.google.android.material.textfield.TextInputLayout-->
+
+    80
+    <!--        <com.google.android.material.textfield.TextInputLayout-->
 <!--            android:id="@+id/rowTextInput"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent">-->

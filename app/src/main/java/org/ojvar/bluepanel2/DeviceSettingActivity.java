@@ -3,6 +3,7 @@ package org.ojvar.bluepanel2;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,7 @@ import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
 public class DeviceSettingActivity extends BaseActivity {
     private DeviceSettingModel[] items = null;
     private RecyclerView devicesListRecyclerView = null;
+    private Toast previousToast = null;
 
     /**
      * On Create
@@ -92,6 +94,21 @@ public class DeviceSettingActivity extends BaseActivity {
                     }
                 }
             }
+
+            /**
+             * onHelpeClicked
+             * @param model
+             * @param number
+             */
+            @Override
+            public void onHelpClicked(DeviceSettingModel model, int number) {
+                if (null != previousToast) {
+                    previousToast.cancel();
+                }
+
+                previousToast = Toast.makeText(DeviceSettingActivity.this, model.getDescription(), Toast.LENGTH_LONG);
+                previousToast.show();
+            }
         });
     }
 
@@ -109,7 +126,7 @@ public class DeviceSettingActivity extends BaseActivity {
             String defValue = String.valueOf(model.getRange().min);
 
             int value = Integer.valueOf(GlobalData.dataModel.getValue(resName, defValue));
-            items[id-1].setValue(value);
+            items[id - 1].setValue(value);
         }
     }
 

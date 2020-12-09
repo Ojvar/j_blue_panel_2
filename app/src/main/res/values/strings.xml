@@ -51,4 +51,6 @@
     <string name="bluetooth_not_found">هیچ دستگاه بلوتوثی پیدا نشد</string>
     <string name="bt_connection_failed">اتصال با خطا مواجه شد</string>
     <string name="fieldsJson">fields.json</string>
+    <string name="help">Help</string>
+    <string name="id">ID</string>
 </resources>
