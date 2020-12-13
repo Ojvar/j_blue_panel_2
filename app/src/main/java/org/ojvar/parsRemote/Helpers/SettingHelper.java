@@ -1,9 +1,9 @@
-package org.ojvar.bluepanel2.Helpers;
+package org.ojvar.parsRemote.Helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.parsRemote.App.GlobalData;
 
 public class SettingHelper {
     public static final String KEY_PREFERENCES = "preferences";

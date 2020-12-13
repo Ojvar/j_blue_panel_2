@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2.Models;
+package org.ojvar.parsRemote.Models;
 
 import com.google.gson.Gson;
 

@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/idTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
@@ -36,17 +36,9 @@
             android:paddingEnd="8dp"
             android:paddingRight="8dp"
             android:text="@string/id"
+            android:textAlignment="viewStart"
             tools:text="@string/id" />
 
-
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="Title"
-            tools:text="Title" />
 
     </LinearLayout>
 

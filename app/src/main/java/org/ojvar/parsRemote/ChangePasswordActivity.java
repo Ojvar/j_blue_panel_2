@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2;
+package org.ojvar.parsRemote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
-import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.Helpers.ToastHelper;
-import org.ojvar.bluepanel2.Helpers.VibrationHelper;
+import org.ojvar.parsRemote.App.GlobalData;
+import org.ojvar.parsRemote.Helpers.ToastHelper;
+import org.ojvar.parsRemote.Helpers.VibrationHelper;
 
 public class ChangePasswordActivity extends AppCompatActivity {
     /**

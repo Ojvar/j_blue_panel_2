@@ -1,6 +1,4 @@
-package org.ojvar.bluepanel2.Models;
-
-import com.google.gson.Gson;
+package org.ojvar.parsRemote.Models;
 
 /**
  * Device setting model
@@ -11,6 +9,7 @@ public class DeviceSettingModel {
     private String description;
     private ValueRange range;
     private int value;
+    private boolean readOnly;
 
     /**
      * Ctr
@@ -20,12 +19,13 @@ public class DeviceSettingModel {
      * @param description
      * @param range
      */
-    public DeviceSettingModel(int id, String title, String description, ValueRange range, int value) {
+    public DeviceSettingModel(int id, String title, String description, ValueRange range, int value, boolean readOnly) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.range = range;
         this.value = value;
+        this.readOnly = readOnly;
     }
 
     public int getId() {
@@ -66,6 +66,14 @@ public class DeviceSettingModel {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public boolean isReadOnly() {
+        return readOnly;
+    }
+
+    public void setReadOnly(boolean readOnly) {
+        this.readOnly = readOnly;
     }
 
     /**

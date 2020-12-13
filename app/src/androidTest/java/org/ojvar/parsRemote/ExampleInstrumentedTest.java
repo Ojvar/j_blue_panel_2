@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2;
+package org.ojvar.parsRemote;
 
 import android.content.Context;
 

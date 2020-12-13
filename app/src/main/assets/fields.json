@@ -7,7 +7,8 @@
       "max": 100
     },
     "default": 80,
-    "description": "براي افزايش سرعت كورس گيري، اين پارامتر را زياد كنيد"
+    "description": "براي افزايش سرعت كورس گيري، اين پارامتر را زياد كنيد",
+    "readOnly": true
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
       "max": 100
     },
     "default": 80,
-    "description": "با افزايش اين مقدار، سرعت بازشدن درب زياد مي شود"
+    "description": "با افزايش اين مقدار، سرعت بازشدن درب زياد مي شود",
+    "readOnly": false
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
       "max": 100
     },
     "default": 60,
-    "description": "با افزايش اين مقدار، سرعت بسته شدن درب زياد مي شود"
+    "description": "با افزايش اين مقدار، سرعت بسته شدن درب زياد مي شود",
+    "readOnly": false
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
       "max": 100
     },
     "default": 50,
-    "description": "با افزايش اين عدد، سرعت آهسته قدري افزايش مي بايد"
+    "description": "با افزايش اين عدد، سرعت آهسته قدري افزايش مي بايد",
+    "readOnly": false
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
       "max": 25
     },
     "default": 2,
-    "description": "زمان باز ماندن درب بر حسب ثانیه"
+    "description": "زمان باز ماندن درب بر حسب ثانیه",
+    "readOnly": false
   },
   {
     "id": 6,
@@ -57,7 +62,8 @@
       "max": 70
     },
     "default": 38,
-    "description": "با افزايش اين عدد، انتهاي بسته شدن درب با قدرت تر خواهد بود"
+    "description": "با افزايش اين عدد، انتهاي بسته شدن درب با قدرت تر خواهد بود",
+    "readOnly": false
   },
   {
     "id": 7,
@@ -67,7 +73,8 @@
       "max": 80
     },
     "default": 55,
-    "description": "هر چه اين عدد بيشتر شود، درز بين درب بيشتر خواهد شد"
+    "description": "هر چه اين عدد بيشتر شود، درز بين درب بيشتر خواهد شد",
+    "readOnly": false
   },
   {
     "id": 8,
@@ -77,7 +84,8 @@
       "max": 6
     },
     "default": 4,
-    "description": "4: 25%    ,5:  20%     ,6:  16% "
+    "description": "4: 25%    ,5:  20%     ,6:  16% ",
+    "readOnly": false
   },
   {
     "id": 9,
@@ -87,7 +95,8 @@
       "max": 10
     },
     "default": 4,
-    "description": "هر چه عدد بزرگتري انتخاب شود، شتاب بيشتر مي شود"
+    "description": "هر چه عدد بزرگتري انتخاب شود، شتاب بيشتر مي شود",
+    "readOnly": false
   },
   {
     "id": 10,
@@ -97,7 +106,8 @@
       "max": 10
     },
     "default": 2,
-    "description": "هر چه عدد بزرگتري انتخاب شود، شتاب بيشتر مي شود"
+    "description": "هر چه عدد بزرگتري انتخاب شود، شتاب بيشتر مي شود",
+    "readOnly": false
   },
   {
     "id": 11,
@@ -107,7 +117,8 @@
       "max": 1
     },
     "default": 0,
-    "description": "0: Deactive    1: Active   "
+    "description": "0: Deactive    1: Active   ",
+    "readOnly": false
   },
   {
     "id": 12,
@@ -117,7 +128,8 @@
       "max": 1
     },
     "default": 1,
-    "description": "0: Deactive    1: Active   "
+    "description": "0: Deactive    1: Active   ",
+    "readOnly": false
   },
   {
     "id": 13,
@@ -127,7 +139,8 @@
       "max": 1
     },
     "default": 0,
-    "description": "0: Deactive    1: Active   "
+    "description": "0: Deactive    1: Active   ",
+    "readOnly": false
   },
   {
     "id": 14,
@@ -137,7 +150,8 @@
       "max": 2
     },
     "default": 1,
-    "description": "0:continious   1:momentary   2:motor type    "
+    "description": "0:continious   1:momentary   2:motor type    ",
+    "readOnly": false
   },
   {
     "id": 15,
@@ -147,7 +161,8 @@
       "max": 100
     },
     "default": 50,
-    "description": "براي لت هاي سنگين، عدد بزرگتري انتخاب شود"
+    "description": "براي لت هاي سنگين، عدد بزرگتري انتخاب شود",
+    "readOnly": false
   },
   {
     "id": 16,
@@ -157,7 +172,8 @@
       "max": 4
     },
     "default": 4,
-    "description": "هر چه عدد کمتری انتخاب شود، میزان بازشو کم خواهد شد"
+    "description": "هر چه عدد کمتری انتخاب شود، میزان بازشو کم خواهد شد",
+    "readOnly": false
   },
   {
     "id": 17,
@@ -167,7 +183,8 @@
       "max": 70
     },
     "default": 15,
-    "description": "ریت کاهش سرعت هنگام برخورد با مانع و یا هنگام فعال شدن چشمی"
+    "description": "ریت کاهش سرعت هنگام برخورد با مانع و یا هنگام فعال شدن چشمی",
+    "readOnly": false
   },
   {
     "id": 18,
@@ -177,7 +194,8 @@
       "max": 100
     },
     "default": 20,
-    "description": "اگر می خواهید با فعال شدن چشمی، درب بلافاصله متوقف و سپس باز شود این عدد را کم کنید ولی ممکن است درب کمی ضربه بزند."
+    "description": "اگر می خواهید با فعال شدن چشمی، درب بلافاصله متوقف و سپس باز شود این عدد را کم کنید ولی ممکن است درب کمی ضربه بزند.",
+    "readOnly": false
   },
   {
     "id": 19,
@@ -187,7 +205,8 @@
       "max": 30
     },
     "default": 0,
-    "description": "قدرت ترمز حین کاهش سرعت در ابتدا و انتها"
+    "description": "قدرت ترمز حین کاهش سرعت در ابتدا و انتها",
+    "readOnly": false
   },
   {
     "id": 20,
@@ -197,6 +216,7 @@
       "max": 100
     },
     "default": 20,
-    "description": "زمان ترمزگیری در ابتدا و انتها ( اگر خیلی زیاد کنید؛ درب در انتهای کورس باز شدن ضربه می زند)"
+    "description": "زمان ترمزگیری در ابتدا و انتها ( اگر خیلی زیاد کنید؛ درب در انتهای کورس باز شدن ضربه می زند)",
+    "readOnly": false
   }
 ]

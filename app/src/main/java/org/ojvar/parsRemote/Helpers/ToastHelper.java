@@ -1,8 +1,8 @@
-package org.ojvar.bluepanel2.Helpers;
+package org.ojvar.parsRemote.Helpers;
 
 import android.widget.Toast;
 
-import org.ojvar.bluepanel2.App.GlobalData;
+import org.ojvar.parsRemote.App.GlobalData;
 
 public class ToastHelper {
     private static Toast toaster;

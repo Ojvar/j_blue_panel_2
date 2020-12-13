@@ -26,6 +26,7 @@
     <string name="device_not_found">دستگاه یافت نشد</string>
     <string name="connection_successfully">اتصال برقرار شد</string>
     <string name="connection_failed">خطا در اتصال به دستگاه</string>
+    <string name="connection_denied">اتصال با سخت افزار برقرار نشد!</string>
     <string name="lock">قفل</string>
     <string name="full_open">باز کامل</string>
     <string name="oneway_pass">یک سو تردد</string>
@@ -53,4 +54,6 @@
     <string name="fieldsJson">fields.json</string>
     <string name="help">Help</string>
     <string name="id">ID</string>
+    <string name="tokenString">parsremote</string>
+    <string name="responseString">09123110559</string>
 </resources>

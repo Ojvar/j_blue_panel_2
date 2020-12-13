@@ -1,7 +1,6 @@
-package org.ojvar.bluepanel2;
+package org.ojvar.parsRemote;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -10,19 +9,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
-import org.ojvar.bluepanel2.Adapters.DeviceSettingsAdapter;
-import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.Helpers.BaseActivity;
-import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
-import org.ojvar.bluepanel2.Helpers.SettingHelper;
-import org.ojvar.bluepanel2.Helpers.VibrationHelper;
-import org.ojvar.bluepanel2.Models.DeviceSettingModel;
+import org.ojvar.parsRemote.Adapters.DeviceSettingsAdapter;
+import org.ojvar.parsRemote.App.GlobalData;
+import org.ojvar.parsRemote.Helpers.BaseActivity;
+import org.ojvar.parsRemote.Helpers.BluetoothHelper;
+import org.ojvar.parsRemote.Helpers.SettingHelper;
+import org.ojvar.parsRemote.Helpers.VibrationHelper;
+import org.ojvar.parsRemote.Models.DeviceSettingModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static org.ojvar.bluepanel2.App.GlobalData.setupBTEventHandler;
+import static org.ojvar.parsRemote.App.GlobalData.setupBTEventHandler;
 
 public class DeviceSettingActivity extends BaseActivity {
     private DeviceSettingModel[] items = null;

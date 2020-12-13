@@ -1,10 +1,10 @@
-package org.ojvar.bluepanel2.Helpers;
+package org.ojvar.parsRemote.Helpers;
 
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static org.ojvar.bluepanel2.App.GlobalData.clearBTEventHandler;
+import static org.ojvar.parsRemote.App.GlobalData.clearBTEventHandler;
 
 public class BaseActivity extends AppCompatActivity {
     /**

@@ -1,7 +1,6 @@
-package org.ojvar.bluepanel2.Helpers;
+package org.ojvar.parsRemote.Helpers;
 
-import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.R;
+import org.ojvar.parsRemote.App.GlobalData;
 
 public class SecurityHelper {
     /**

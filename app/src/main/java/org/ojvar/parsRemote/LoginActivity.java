@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2;
+package org.ojvar.parsRemote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
-import org.ojvar.bluepanel2.Helpers.ProgressHelper;
-import org.ojvar.bluepanel2.Helpers.SettingHelper;
-import org.ojvar.bluepanel2.Helpers.ToastHelper;
-import org.ojvar.bluepanel2.Helpers.SecurityHelper;
-import org.ojvar.bluepanel2.Helpers.VibrationHelper;
+import org.ojvar.parsRemote.App.GlobalData;
+import org.ojvar.parsRemote.Helpers.BluetoothHelper;
+import org.ojvar.parsRemote.Helpers.ProgressHelper;
+import org.ojvar.parsRemote.Helpers.SettingHelper;
+import org.ojvar.parsRemote.Helpers.ToastHelper;
+import org.ojvar.parsRemote.Helpers.SecurityHelper;
+import org.ojvar.parsRemote.Helpers.VibrationHelper;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
@@ -81,9 +81,6 @@ public class LoginActivity extends AppCompatActivity {
     private final View.OnClickListener checkLogin = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            /* TODO:  REMOVE AFTER TEST */
-            showMainActivity();
-
             VibrationHelper.vibrate(getApplicationContext());
 
             String pwd = passwordEditText.getText()
@@ -116,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
                                     ToastHelper.showNotify(getString(R.string.connection_successfully));
 
-                                    showMainActivity();
+                                    LoginActivity.this.sendValidationCommand();
                                 }
                             });
                         }
@@ -135,12 +132,33 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void OnCommand(String data) {
+                            LoginActivity.this.checkBluetoothResponse(data);
                         }
                     });
                 }
             }
         }
     };
+
+    /**
+     * Checkblue tooth response
+     *
+     * @param data
+     */
+    private void checkBluetoothResponse(String data) {
+        if (data.equals(getString(R.string.responseString))) {
+            showMainActivity();
+        } else {
+            ToastHelper.showNotify(getString(R.string.responseString));
+        }
+    }
+
+    /**
+     * Send Validation Command
+     */
+    private void sendValidationCommand() {
+        BluetoothHelper.send(getString(R.string.tokenString));
+    }
 
     /**
      * Set UI State

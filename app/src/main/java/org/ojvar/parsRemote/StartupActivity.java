@@ -1,13 +1,13 @@
-package org.ojvar.bluepanel2;
+package org.ojvar.parsRemote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
-import org.ojvar.bluepanel2.Helpers.SettingHelper;
+import org.ojvar.parsRemote.App.GlobalData;
+import org.ojvar.parsRemote.Helpers.BluetoothHelper;
+import org.ojvar.parsRemote.Helpers.SettingHelper;
 
 public class StartupActivity extends AppCompatActivity {
     @Override

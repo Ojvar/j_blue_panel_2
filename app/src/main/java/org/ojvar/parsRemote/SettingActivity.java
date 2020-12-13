@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2;
+package org.ojvar.parsRemote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,12 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import org.ojvar.bluepanel2.Adapters.DevicesAdapter;
-import org.ojvar.bluepanel2.App.GlobalData;
-import org.ojvar.bluepanel2.Helpers.SettingHelper;
-import org.ojvar.bluepanel2.Helpers.ToastHelper;
-import org.ojvar.bluepanel2.Helpers.VibrationHelper;
-import org.ojvar.bluepanel2.Models.DeviceModel;
+import org.ojvar.parsRemote.Adapters.DevicesAdapter;
+import org.ojvar.parsRemote.App.GlobalData;
+import org.ojvar.parsRemote.Helpers.SettingHelper;
+import org.ojvar.parsRemote.Helpers.ToastHelper;
+import org.ojvar.parsRemote.Helpers.VibrationHelper;
+import org.ojvar.parsRemote.Models.DeviceModel;
 
 import java.util.ArrayList;
 import java.util.List;

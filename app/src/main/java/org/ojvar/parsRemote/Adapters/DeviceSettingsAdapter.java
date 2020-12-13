@@ -1,29 +1,24 @@
-package org.ojvar.bluepanel2.Adapters;
+package org.ojvar.parsRemote.Adapters;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.ojvar.bluepanel2.Helpers.InputFilterMinMax;
-import org.ojvar.bluepanel2.Models.DeviceSettingModel;
-import org.ojvar.bluepanel2.R;
+import org.ojvar.parsRemote.Models.DeviceSettingModel;
+import org.ojvar.parsRemote.R;
 
 public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAdapter.ViewHolder> {
     private final Context context;
-    private DeviceSettingModel[] mData;
-    private LayoutInflater mInflater;
+    private final DeviceSettingModel[] mData;
+    private final LayoutInflater mInflater;
     private IOnItemChange onItemChangeEvents;
 
     /**
@@ -67,12 +62,11 @@ public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAd
 
         holder.model = model;
         holder.idTextView.setText(String.valueOf(model.getId()));
-        holder.titleTextView.setText(String.valueOf(model.getTitle()));
-        holder.idTextView.setText(String.valueOf(model.getId()));
+        holder.idTextView.setText(model.getId() + " : " + model.getTitle());
 
+        holder.valueEditText.setEnabled(!model.isReadOnly());
         holder.valueEditText.setText(String.valueOf(model.getValue()));
         holder.valueEditText.setHint(min + "~" + max);
-//        holder.valueEditText.setFilters(new InputFilter[]{new InputFilterMinMax(min, max)});
     }
 
     /**
@@ -108,19 +102,15 @@ public class DeviceSettingsAdapter extends RecyclerView.Adapter<DeviceSettingsAd
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public DeviceSettingModel model;
-        private ImageView helpImageView;
-        private TextView idTextView;
-        private TextView titleTextView;
-        private TextInputEditText rowTextInput;
-        private EditText valueEditText;
+        private final ImageView helpImageView;
+        private final TextView idTextView;
+        private final EditText valueEditText;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             helpImageView = itemView.findViewById(R.id.helpImageView);
             idTextView = itemView.findViewById(R.id.idTextView);
-            titleTextView = itemView.findViewById(R.id.titleTextView);
-//            rowTextInput = itemView.findViewById(R.id.rowTextInput);
             valueEditText = itemView.findViewById(R.id.valueEditText);
 
             final int number = Integer.valueOf("0" + valueEditText.getText().toString());

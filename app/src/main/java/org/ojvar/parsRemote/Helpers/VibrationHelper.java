@@ -1,9 +1,9 @@
-package org.ojvar.bluepanel2.Helpers;
+package org.ojvar.parsRemote.Helpers;
 
 import android.content.Context;
 import android.os.Vibrator;
 
-import org.ojvar.bluepanel2.R;
+import org.ojvar.parsRemote.R;
 
 /**
  * Virbration helper

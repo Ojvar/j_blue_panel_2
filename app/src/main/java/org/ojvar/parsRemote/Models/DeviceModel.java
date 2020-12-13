@@ -1,8 +1,6 @@
-package org.ojvar.bluepanel2.Models;
+package org.ojvar.parsRemote.Models;
 
 import androidx.annotation.NonNull;
-
-import com.google.gson.Gson;
 
 public class DeviceModel {
     private String name;

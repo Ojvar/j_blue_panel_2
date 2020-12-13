@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2.Helpers;
+package org.ojvar.parsRemote.Helpers;
 
 import android.app.ProgressDialog;
 import android.content.Context;

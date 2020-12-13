@@ -1,14 +1,14 @@
-package org.ojvar.bluepanel2.App;
+package org.ojvar.parsRemote.App;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 
-import org.ojvar.bluepanel2.Helpers.BluetoothHelper;
-import org.ojvar.bluepanel2.Models.DataModel;
-import org.ojvar.bluepanel2.Models.SettingModel;
-import org.ojvar.bluepanel2.R;
+import org.ojvar.parsRemote.Helpers.BluetoothHelper;
+import org.ojvar.parsRemote.Models.DataModel;
+import org.ojvar.parsRemote.Models.SettingModel;
+import org.ojvar.parsRemote.R;
 
 import java.util.ArrayList;
 import java.util.List;

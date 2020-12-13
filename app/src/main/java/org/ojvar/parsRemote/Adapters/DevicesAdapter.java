@@ -1,4 +1,4 @@
-package org.ojvar.bluepanel2.Adapters;
+package org.ojvar.parsRemote.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.ojvar.bluepanel2.Models.DeviceModel;
-import org.ojvar.bluepanel2.R;
+import org.ojvar.parsRemote.Models.DeviceModel;
+import org.ojvar.parsRemote.R;
 
 import java.util.List;
 
