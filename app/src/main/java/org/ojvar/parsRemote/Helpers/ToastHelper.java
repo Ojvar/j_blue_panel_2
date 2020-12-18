@@ -1,5 +1,6 @@
 package org.ojvar.parsRemote.Helpers;
 
+import android.content.Context;
 import android.widget.Toast;
 
 import org.ojvar.parsRemote.App.GlobalData;
@@ -13,10 +14,10 @@ public class ToastHelper {
      * @param message
      * @return
      */
-    public static Toast showNotify(String message) {
+    public static Toast showNotify(String message, Context context) {
         hideNotify();
 
-        toaster = Toast.makeText(GlobalData.applicationContext, message, Toast.LENGTH_LONG);
+        toaster = Toast.makeText(context, message, Toast.LENGTH_LONG);
         toaster.show();
 
         return toaster;

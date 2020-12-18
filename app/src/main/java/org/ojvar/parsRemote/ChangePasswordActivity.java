@@ -2,6 +2,7 @@ package org.ojvar.parsRemote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,6 +45,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
      * Change Password
      */
     private boolean changePassword() {
+        Context context = this;
+
         String storedOldPassword = GlobalData.settings.getPassword();
         String oldPassword = ((EditText) findViewById(R.id.oldPasswordEditText))
                 .getText()
@@ -62,20 +65,20 @@ public class ChangePasswordActivity extends AppCompatActivity {
             if (newPassword.equals(confirmNewPassword)) {
                 if (newPassword.length() < passMinLen) {
                     ToastHelper.showNotify(String.format(getString(R.string.min_pass_len),
-                            String.valueOf(passMinLen)));
+                            String.valueOf(passMinLen)), context);
                 } else if (newPassword.length() > passMaxLen) {
                     ToastHelper.showNotify(String.format(getString(R.string.max_pass_len),
-                            String.valueOf(passMaxLen)));
+                            String.valueOf(passMaxLen)), context);
                 } else {
                     GlobalData.settings.setPassword(newPassword);
 
                     return true;
                 }
             } else {
-                ToastHelper.showNotify(getString(R.string.check_new_password));
+                ToastHelper.showNotify(getString(R.string.check_new_password), context);
             }
         } else {
-            ToastHelper.showNotify(getString(R.string.invalid_old_pass));
+            ToastHelper.showNotify(getString(R.string.invalid_old_pass), context);
         }
 
         return false;

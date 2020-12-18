@@ -2,9 +2,11 @@ package org.ojvar.parsRemote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        GlobalData.applicationContext = this;
         BluetoothHelper.disconnect();
         SettingHelper.loadSetting();
     }
@@ -79,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
      * Check Login
      */
     private final View.OnClickListener checkLogin = new View.OnClickListener() {
+        final Context context = LoginActivity.this;
+
         @Override
         public void onClick(View v) {
             VibrationHelper.vibrate(getApplicationContext());
@@ -92,14 +97,14 @@ public class LoginActivity extends AppCompatActivity {
             boolean attemptResult = SecurityHelper.attempt(pwd);
 
             if (!attemptResult) {
-                ToastHelper.showNotify(getString(R.string.invalid_password));
+                ToastHelper.showNotify(getString(R.string.invalid_password), LoginActivity.this);
 
                 enableUI();
             } else {
                 String deviceId = GlobalData.settings.getDeviceId() + "";
 
                 if (deviceId.length() == 0) {
-                    ToastHelper.showNotify(getString(R.string.device_not_found));
+                    ToastHelper.showNotify(getString(R.string.device_not_found), LoginActivity.this);
 
                     enableUI();
                 } else {
@@ -111,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ToastHelper.showNotify(getString(R.string.connection_successfully));
+                                    ToastHelper.showNotify(getString(R.string.connection_successfully), context);
 
                                     LoginActivity.this.sendValidationCommand();
                                 }
@@ -125,16 +130,22 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
                                     enableUI();
 
-                                    ToastHelper.showNotify(getString(R.string.connection_failed));
+                                    ToastHelper.showNotify(getString(R.string.connection_failed), LoginActivity.this);
                                 }
                             });
                         }
 
                         @Override
-                        public void OnCommand(String data) {
-                            LoginActivity.this.checkBluetoothResponse(data);
+                        public void OnCommand(final String data) {
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                enableUI();
+                                LoginActivity.this.checkBluetoothResponse(data);
+                            }
+                            });
                         }
-                    });
+                    }, context);
                 }
             }
         }
@@ -149,7 +160,8 @@ public class LoginActivity extends AppCompatActivity {
         if (data.equals(getString(R.string.responseString))) {
             showMainActivity();
         } else {
-            ToastHelper.showNotify(getString(R.string.responseString));
+//            sendValidationCommand();
+            ToastHelper.showNotify(getString(R.string.connection_denied), LoginActivity.this);
         }
     }
 

@@ -88,7 +88,7 @@ public class SettingActivity extends AppCompatActivity {
             DeviceModel model = devicesList.get(position);
             GlobalData.settings.setDeviceId(model.getId());
 
-            ToastHelper.showNotify("[" + model.getId() + " / " + model.getName() + "] Selected ");
+            ToastHelper.showNotify("[" + model.getId() + " / " + model.getName() + "] Selected ", SettingActivity.this);
         }
     };
 

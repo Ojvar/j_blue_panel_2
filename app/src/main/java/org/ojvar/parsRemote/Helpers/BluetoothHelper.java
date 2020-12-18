@@ -2,6 +2,7 @@ package org.ojvar.parsRemote.Helpers;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 
 import org.ojvar.parsRemote.App.GlobalData;
 import org.ojvar.parsRemote.R;
@@ -9,11 +10,14 @@ import org.ojvar.parsRemote.R;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 public class BluetoothHelper {
     public static BluetoothEvents events;
+    private static String _buffer = "";
 
     /**
      * Bluetooth events
@@ -46,12 +50,12 @@ public class BluetoothHelper {
     /**
      * Initialize bluetooth adapter
      */
-    public static boolean init() {
+    public static boolean init(Context context) {
         GlobalData.btAdapter = BluetoothAdapter.getDefaultAdapter();
 
         if (GlobalData.btAdapter == null) {
             String msg = GlobalData.applicationContext.getString(R.string.bluetooth_not_found);
-            ToastHelper.showNotify(msg);
+            ToastHelper.showNotify(msg, context);
 
             return false;
         }
@@ -65,15 +69,17 @@ public class BluetoothHelper {
      * @param deviceId
      * @return
      */
-    public static boolean connect(String deviceId, final BluetoothEvents events) {
+    public static boolean connect(String deviceId, final BluetoothEvents events, Context context) {
         if (null == GlobalData.btAdapter) {
             return false;
         }
 
+        BluetoothHelper.events = events;
+
         GlobalData.btDevice = GlobalData.btAdapter.getRemoteDevice(deviceId);
         if (GlobalData.btDevice == null) {
             String msg = GlobalData.applicationContext.getString(R.string.device_not_found);
-            ToastHelper.showNotify(msg);
+            ToastHelper.showNotify(msg, context);
 
             return false;
         }
@@ -152,18 +158,50 @@ public class BluetoothHelper {
                                 String strData = new String(sData, Charset.forName("UTF-8"));
 
                                 try {
-                                    events.OnCommand(strData);
+                                    updateInputData(strData);
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
                                 }
                             }
                         }
                     } catch (Exception e) {
+                        if (null != events) {
+                            events.OnDisconnect();
+                        }
                         e.printStackTrace();
                     }
                 }
             }
         }).start();
+    }
+
+    /**
+     * Update input data
+     *
+     * @param strData
+     */
+    private static synchronized void updateInputData(String strData) {
+        /* Append to buffer */
+        _buffer += strData;
+
+        _buffer = _buffer.replaceAll("\r", "\n").replaceAll("\n\n", "\n");
+
+        /* Create chunks */
+        int pos = -1;
+        do {
+            pos = _buffer.indexOf("\n");
+
+            if (pos == -1) {
+                break;
+            }
+
+            /* Split string */
+            String strToSend = _buffer.substring(0, pos);
+            events.OnCommand(strToSend);
+
+            /* Update _buffer */
+            _buffer = _buffer.substring(pos+1);
+        } while (true);
     }
 
     /**

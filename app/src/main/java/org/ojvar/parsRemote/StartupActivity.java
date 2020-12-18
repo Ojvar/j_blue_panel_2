@@ -42,7 +42,7 @@ public class StartupActivity extends AppCompatActivity {
         SettingHelper.loadSetting();
 
         /* Prepare bluetooth adapter */
-        if (!BluetoothHelper.init()) {
+        if (!BluetoothHelper.init(StartupActivity.this)) {
             finish();
         }
     }

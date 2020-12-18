@@ -34,9 +34,6 @@ public class GlobalData {
      * Setup bluetooth event handler
      */
     public static void setupBTEventHandler(BluetoothHelper.BluetoothEvents events) {
-        /* TODO:// OJVAR  DISALBE */
-        if (true) return;
-
         BluetoothHelper.events = events;
     }
 
